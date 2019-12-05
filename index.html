@@ -2,13 +2,107 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>The Website</title>
-
-        <link rel="stylesheet" href="stylesheets/main.css">
+        <title>Homepage - Work In Progress</title>
+        <link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
     </head>
 
     <body>
-        Work In Progress
+            <style>
+                    html {
+                        box-sizing: border-box;
+                        /* Thank you CSS-Tricks, this has been floating around the internet a lot */
+                        background: url('background.jpg') no-repeat center center fixed; 
+                        -webkit-background-size: cover;
+                        -moz-background-size: cover;
+                        -o-background-size: cover;
+                        background-size: cover;
+                        height: 100%;
+                        overflow: hidden;
+                        font-family: 'helvetica neue';
+                        font-size: 20px;
+                        font-weight: 200;
+                    }
+                    
+                    body {
+                        /* This will remove the buffer around the body */
+                        margin: 0;
+                    }
+                    
+                    .panels {
+                        /* Set a minimum size to limit the flex panel scaling */
+                        min-height: 100vh;
+                        /* If the content is too big, we will hide it */
+                        overflow: hidden;
+                        display: flex;
+                    }
+                   
+                    .panel {
+                        text-align: center;
+                        align-items: center;
+                        transition: 
+                            flex 0.5s cubic-bezier(0.6, -0.28, 0.735, 0.045),
+                            opacity 0.5s ease-in-out,
+                            font-size 0.5s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+                        font-size: 25px;
+                        flex: 1;
+                        justify-content: center;
+                        display: flex;
+                        flex-direction: column;
+                        opacity: 0.85;
+                    }
+
+                    .panel > * {
+                        background: rgba(66, 66, 66, 0.22);
+                        margin: 0px;
+                        width: 80%;
+                        transition: transform 0.5s;
+                        flex: 1 0 auto;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+
+                    .panel p {
+                        text-transform: uppercase;
+                        font-family: 'Amatic SC';
+                        font-size: 2em;
+                    }
+
+                    .panel.open {
+                        font-size: 30px;
+                        opacity: 1.0;
+                        flex: 2;
+                    }
+
+                  </style>
+
+        <div class = "panels">
+            <div class="panel">
+                <p>Work</p>
+            </div>
+            <div class="panel">
+                <p>In</p>
+            </div>
+            <div class="panel">
+                <p>Progress</p>
+            </div>
+        </div>
+        
+        <script>
+        
+        const panels = document.querySelectorAll('.panel');
+
+        function toggleOpen() {
+            this.classList.toggle('open');
+            console.log("Toggled");
+        }
+
+        panels.forEach(panel => panel.addEventListener('mouseenter', toggleOpen));
+
+        panels.forEach(panel => panel.addEventListener('mouseleave', toggleOpen));
+
+        </script>
+
     </body>
     
 </html>
