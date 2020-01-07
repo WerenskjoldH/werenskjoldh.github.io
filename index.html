@@ -1,108 +1,214 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Homepage - Work In Progress</title>
-        <link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
-    </head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Hunter Werenskjold Homepage</title>
+  </head>
+  <body>
+    <div id="table-of-contents">
+      <div class="button" onclick="openPage('about-me.html')">
+        <image src="potion.png" alt="" class="icon" />
+        <div class="banner"><p class="antihighlight">About Me</p></div>
+        <image src="shadow.png" alt="" class="shadow" />
+      </div>
+      <div class="button">
+        <image src="potion.png" alt="" class="icon" />
+        <div class="banner"><p class="antihighlight">Github</p></div>
+        <image src="shadow.png" alt="" class="shadow" />
+      </div>
+      <div class="button">
+        <image src="potion.png" alt="" class="icon" />
+        <div class="banner"><p class="antihighlight">Contact Me</p></div>
+        <image src="shadow.png" alt="" class="shadow" />
+      </div>
+      <div class="button">
+        <image src="talk-bubble.png" alt="" class="icon" />
+        <div class="banner"><p class="antihighlight">Other</p></div>
+        <image src="shadow.png" alt="" class="shadow" />
+      </div>
+    </div>
+  </body>
 
-    <body>
-            <style>
-                    html {
-                        box-sizing: border-box;
-                        /* Thank you CSS-Tricks, this has been floating around the internet a lot */
-                        background: url('background.jpg') no-repeat center center fixed; 
-                        -webkit-background-size: cover;
-                        -moz-background-size: cover;
-                        -o-background-size: cover;
-                        background-size: cover;
-                        height: 100%;
-                        overflow: hidden;
-                        font-family: 'helvetica neue';
-                        font-size: 20px;
-                        font-weight: 200;
-                    }
-                    
-                    body {
-                        /* This will remove the buffer around the body */
-                        margin: 0;
-                    }
-                    
-                    .panels {
-                        /* Set a minimum size to limit the flex panel scaling */
-                        min-height: 100vh;
-                        /* If the content is too big, we will hide it */
-                        overflow: hidden;
-                        display: flex;
-                    }
-                   
-                    .panel {
-                        text-align: center;
-                        align-items: center;
-                        transition: 
-                            flex 0.5s cubic-bezier(0.6, -0.28, 0.735, 0.045),
-                            opacity 0.5s ease-in-out,
-                            font-size 0.5s cubic-bezier(0.6, -0.28, 0.735, 0.045);
-                        font-size: 25px;
-                        flex: 1;
-                        justify-content: center;
-                        display: flex;
-                        flex-direction: column;
-                        opacity: 0.85;
-                    }
+  <style>
+    body {
+      background-color: #f5f5f5;
+      /*
+      background-image: url("background.png");
+      background-repeat: repeat;
+      */
+      margin: 0;
+      padding: 0;
+    }
 
-                    .panel > * {
-                        background: rgba(167, 167, 167, 0.22);
-                        margin: 0px;
-                        width: 80%;
-                        transition: transform 0.5s;
-                        flex: 1 0 auto;
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                    }
+    #table-of-contents {
+      transform-origin: left;
+      position: absolute;
+      height: 99%;
+      width: 33%;
+      left: 33%;
+      text-align: center;
+    }
 
-                    .panel p {
-                        text-transform: uppercase;
-                        font-family: 'Amatic SC';
-                        font-size: 1em;
-                    }
+    .button {
+      background-color: #a0938e; /* Green */
+      border: none;
+      font-size: 16px;
+      color: white;
+      text-align: center;
+      vertical-align: top;
+      line-height: 64px;
+      text-decoration: none;
+      display: block;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      margin-left: auto;
+      margin-right: auto;
+      width: 100px;
+      height: 100px;
+      transition: all 0.3s ease-in-out;
+      transform-origin: center;
+      position: relative;
+      top: 20%;
+      left: auto;
+    }
 
-                    .panel.open {
-                        font-size: 30px;
-                        opacity: 1.0;
-                        flex: 2;
-                    }
+    .button > * {
+      transition: all 0.3s ease-in-out;
+    }
 
-                  </style>
+    .button.hovered {
+      -webkit-box-shadow: 5px 5px 1px 0 rgba(207, 198, 184, 0.8);
+      transform: translateY(-5px);
+    }
 
-        <div class = "panels">
-            <div class="panel">
-                <p>Work</p>
-            </div>
-            <div class="panel">
-                <p>In</p>
-            </div>
-            <div class="panel">
-                <p>Progress</p>
-            </div>
-        </div>
-        
-        <script>
-        
-        const panels = document.querySelectorAll('.panel');
+    .button.hovered > :first-child {
+      transform: translateY(-10%) scale(1.1);
+    }
 
-        function toggleOpen() {
-            this.classList.toggle('open');
-            console.log("Toggled");
-        }
+    .button.hovered > :last-child {
+      transform: scale(1.1);
+    }
 
-        panels.forEach(panel => panel.addEventListener('mouseenter', toggleOpen));
+    .button.hovered > :first-child.clicked {
+      transform: translateY(0%) scale(0.8);
+    }
 
-        panels.forEach(panel => panel.addEventListener('mouseleave', toggleOpen));
+    .button.hovered > :last-child.clicked {
+      transform: scale(0.8);
+    }
 
-        </script>
+    .icon {
+      position: absolute;
+      image-rendering: crisp-edges;
+      top: 14%;
+      left: 12%;
+      width: 75%;
+      vertical-align: middle;
+      z-index: 1;
+    }
 
-    </body>
-    
+    .shadow {
+      position: absolute;
+      image-rendering: crisp-edges;
+      top: 14%;
+      left: 12%;
+      width: 75%;
+      vertical-align: middle;
+      z-index: 0;
+    }
+
+    .banner {
+      background-color: #eea160; /* Green */
+      border: none;
+      font-size: 24px;
+      color: rgba(245, 245, 245, 0);
+      line-height: 20px;
+      vertical-align: center;
+      white-space: nowrap;
+      text-decoration: none;
+      display: block;
+      margin: auto;
+      float: left;
+      transform: translateX(100px);
+      width: 0px;
+      height: 70px;
+      -webkit-transition: all 0.4s ease-in-out;
+      direction: ltr;
+      position: relative;
+      top: 20%;
+      left: auto;
+      transform-origin: 0% 50%;
+      z-index: 0;
+    }
+
+    .banner.visible {
+      width: 200px;
+      font-size: 24px;
+      -webkit-box-shadow: 3px 3px 1px 0 rgba(207, 198, 184, 0.8);
+      color: rgba(245, 245, 245, 1);
+    }
+
+    /**/
+    .antihighlight {
+      /* Chrome, Safari, Mozilla, IE */
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      /* These are for boundary cases */
+      -o-user-select: none;
+      user-select: none;
+    }
+  </style>
+
+  <script>
+    const btns = document.querySelectorAll(".button");
+    const imgs = document.querySelectorAll("img");
+    let currentSelection = null;
+
+    function openPage(url) {
+      window.open(url);
+    }
+
+    function onSelection(e) {
+      if (e.target.tagName == "P") return;
+
+      if (currentSelection != null) {
+        currentSelection.classList.remove("hovered");
+        currentSelection.querySelector(".banner").classList.remove("visible");
+      }
+      this.classList.add("hovered");
+      this.querySelector(".banner").classList.add("visible");
+      currentSelection = this;
+    }
+
+    function onClick(e) {
+      if (currentSelection == null) return;
+
+      currentSelection.querySelector(".icon").classList.add("clicked");
+      currentSelection.querySelector(".shadow").classList.add("clicked");
+    }
+
+    function onExit(e) {
+      if (currentSelection == null) return;
+
+      currentSelection.querySelector(".icon").classList.remove("clicked");
+      currentSelection.querySelector(".shadow").classList.remove("clicked");
+    }
+
+    btns.forEach(btn => {
+      btn.addEventListener("mouseenter", onSelection);
+      btn.addEventListener("mousedown", onClick);
+      btn.addEventListener("mouseleave", onExit);
+      btn.addEventListener("mouseup", onExit);
+    });
+
+    // Make images unable to be dragged
+    imgs.forEach(img => {
+      img.ondragstart = function() {
+        return false;
+      };
+    });
+  </script>
 </html>
