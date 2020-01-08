@@ -171,18 +171,33 @@
       window.open(url);
     }
 
-    function onSelection(e) {
-      if (e.target.tagName == "P") return;
-
-      if (currentSelection != null) {
-        currentSelection.classList.remove("hovered");
-        currentSelection.querySelector(".banner").classList.remove("visible");
-      }
-      this.classList.add("hovered");
-      this.querySelector(".banner").classList.add("visible");
-      currentSelection = this;
+    function deselectOption(opt)
+    {
+      opt.classList.remove("hovered");
+      opt.querySelector(".banner").classList.remove("visible");
     }
 
+    function selectOption(opt)
+    {
+      opt.classList.add("hovered");
+      opt.querySelector(".banner").classList.add("visible");
+      currentSelection = opt;
+    }
+
+    // Triggers when button div or a child, except the text, is hovered over
+    function onSelection(e) {
+      // Prevention of changing selection when hovering over hidden text
+      if (e.target.tagName == "P") return;
+
+      // If there is a previous selection, we must unselect it before selecting our current
+      if (currentSelection != null) 
+        deselectOption(currentSelection);
+        
+      // Select the new option
+      selectOption(this);
+    }
+
+    // 
     function onClick(e) {
       if (currentSelection == null) return;
 
