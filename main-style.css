@@ -65,7 +65,60 @@ body {
   margin: 0;
   border: 0;
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 1fr 3fr;
   grid-template-rows: auto;
   grid-template-areas: "navigation simarea";
+}
+
+.button {
+  border: none;
+  width: 100px;
+  height: 100px;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+}
+
+.icon {
+  position: absolute;
+  image-rendering: crisp-edges;
+  top: 10%;
+  left: 12%;
+  width: 75%;
+  vertical-align: middle;
+  z-index: 1;
+}
+
+.shadow {
+  position: absolute;
+  image-rendering: crisp-edges;
+  top: 14%;
+  left: 12%;
+  width: 75%;
+  vertical-align: middle;
+  z-index: 0;
+}
+
+.button > * {
+  transition: all 0.3s ease-in-out;
+}
+
+.button.hovered {
+  -webkit-box-shadow: 5px 5px 1px 0 rgba(207, 198, 184, 0.8);
+  transform: translateY(-5px);
+}
+
+.button.hovered > :first-child {
+  transform: translateY(-10%) scale(1.1);
+}
+
+.button.hovered > :last-child {
+  transform: scale(1.1);
+}
+
+.button.hovered > :first-child.clicked {
+  transform: translateY(0%) scale(0.8);
+}
+
+.button.hovered > :last-child.clicked {
+  transform: scale(0.8);
 }
