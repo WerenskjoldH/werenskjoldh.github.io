@@ -34,7 +34,8 @@ body {
   height: 100%;
 
   font-family: "Press Start 2P", cursive;
-  font-size: 20px;
+  color: white;
+  font-size: 15px;
   letter-spacing: 5px;
 }
 
@@ -47,6 +48,8 @@ body {
 
 #Logo-area {
   background-color: #ffffff;
+  color: black;
+  font-size: 20px;
 }
 
 #About-area {
@@ -100,11 +103,6 @@ body {
 
 .button > * {
   transition: all 0.3s ease-in-out;
-}
-
-.button.hovered {
-  -webkit-box-shadow: 5px 5px 1px 0 rgba(207, 198, 184, 0.8);
-  transform: translateY(-5px);
 }
 
 .button.hovered > :first-child {
