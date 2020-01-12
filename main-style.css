@@ -17,7 +17,7 @@ canvas {
   -moz-user-select: none;
 }
 
-#navigation {
+#Navigation {
   position: relative;
   grid-area: navigation;
   background-color: black;
@@ -30,7 +30,7 @@ canvas {
   justify-content: space-evenly;
 }
 
-#navigation > * {
+#Navigation > * {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -39,10 +39,10 @@ canvas {
   font-family: "Press Start 2P", cursive;
   color: white;
   font-size: 20px;
-  letter-spacing: 5px;
+  letter-spacing: 1px;
 }
 
-#simarea {
+#Simarea {
   position: relative;
   position: relative;
   grid-area: simarea;
@@ -51,9 +51,21 @@ canvas {
 }
 
 #Logo-area {
+  position: relative;
   background-color: #ffffff;
   color: black;
   font-size: 24px;
+}
+
+#Logo-area > * {
+  transform: translateY(-100%);
+}
+
+#Title-subtext {
+  font-size: 16px;
+  position: absolute;
+  transform-origin: bottom left;
+  transform: translateX(1%) translateY(200%);
 }
 
 #About-area {
@@ -75,29 +87,32 @@ canvas {
 .option {
   display: inline-block;
   position: relative;
+  z-index: 3;
 }
 
 /* Add a basic element */
-.option::before {
+.option::after {
   content: "";
   /* Without the parent being set to relative, this would set itself relative to the page */
   position: absolute;
-  width: 95%;
+  z-index: -1;
+  width: 103%;
   /* Remove the width */
-  transform: scaleX(0) translateY(5px);
-  height: 4px;
+  transform: scaleX(0) translateX(-1px);
+  height: 25px;
   bottom: 0;
   left: 0;
-  background-color: #222034c0;
+  background-color: rgba(0, 0, 0, 0);
   /* return to scale 0 from bottom right */
-  transform-origin: bottom right;
-  transition: transform 0.25s ease-out;
+  transform-origin: center;
+  transition: all 0.25s ease-out;
 }
 
-.option:hover::before {
-  transform: scaleX(1) translateY(5px);
+.option:hover::after {
+  transform: scaleX(1) translateX(-5px);
+  background-color: #222034;
   /* scale from the bottom left */
-  transform-origin: bottom left;
+  transform-origin: top;
 }
 
 .site-wrap {

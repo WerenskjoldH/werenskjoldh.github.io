@@ -1,4 +1,4 @@
-const container = document.getElementById("simarea");
+const container = document.getElementById("Simarea");
 var canvas;
 
 const rectWidth = 10;
@@ -14,12 +14,10 @@ function windowResized() {
 }
 
 function setup() {
-  console.log(container);
   canvas = createCanvas(container.offsetWidth, container.offsetHeight);
   canvas.position(0, 0);
-  canvas.parent("simarea");
+  canvas.parent("Simarea");
   canvas.style("z-index", "-1");
-  console.log(canvas);
 }
 
 function draw() {
