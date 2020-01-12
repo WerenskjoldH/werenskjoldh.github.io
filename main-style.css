@@ -9,9 +9,6 @@ body {
   margin: 0;
 }
 
-canvas {
-}
-
 .antihighlight {
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -75,8 +72,12 @@ canvas {
   background-color: #639bff;
 }
 
-#Accounts-area {
+#Hobbies-area {
   background-color: #5b6ee1;
+}
+
+#Accounts-area {
+  background-color: #4756ad;
 }
 
 .selectable {
