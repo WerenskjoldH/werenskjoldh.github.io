@@ -16,6 +16,7 @@ function windowResized() {
 function setup() {
   console.log(container);
   canvas = createCanvas(container.offsetWidth, container.offsetHeight);
+  canvas.position(0, 0);
   canvas.parent("simarea");
   canvas.style("z-index", "-1");
   console.log(canvas);
