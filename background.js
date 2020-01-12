@@ -20,10 +20,6 @@ function setup() {
   canvas.style("z-index", "-1");
 }
 
-function draw() {
-  background(175);
-}
-
 function mousePressed(e) {
   console.log(e.target);
   if (e.target.className != "p5Canvas") return;
@@ -35,23 +31,14 @@ function mouseReleased() {
 }
 
 function draw() {
-  if (click && !clickPrevious && !playEffect) {
-    [effectX, effectY] = [mouseX, mouseY];
+  if (click && !clickPrevious) {
+    background(255, 155, 155);
+  } else {
+    background(175);
   }
 
-  let [radiusX, radiusY] = [2000, 2000];
-  for (let i = 0; i < 20; i++) {
-    radiusX *= 0.75;
-    radiusY *= 0.75;
-    push();
-    ellipse(
-      effectX + 40 * sin(i + millis() / 500),
-      effectY + 10 * cos(i + millis() / 100),
-      radiusX,
-      radiusY
-    );
-    pop();
-  }
+  push();
+  pop();
 }
 
 clickPrevious = click;
