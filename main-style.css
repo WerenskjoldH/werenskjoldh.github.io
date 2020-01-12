@@ -44,7 +44,6 @@ canvas {
 
 #Simarea {
   position: relative;
-  position: relative;
   grid-area: simarea;
   background-color: #ffffff;
   z-index: 0;
