@@ -9,6 +9,9 @@ body {
   margin: 0;
 }
 
+canvas {
+}
+
 .antihighlight {
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -35,11 +38,12 @@ body {
 
   font-family: "Press Start 2P", cursive;
   color: white;
-  font-size: 18px;
+  font-size: 20px;
   letter-spacing: 5px;
 }
 
 #simarea {
+  position: relative;
   position: relative;
   grid-area: simarea;
   background-color: #ffffff;
@@ -62,6 +66,38 @@ body {
 
 #Accounts-area {
   background-color: #5b6ee1;
+}
+
+.selectable {
+  cursor: pointer;
+}
+
+.option {
+  display: inline-block;
+  position: relative;
+}
+
+/* Add a basic element */
+.option::before {
+  content: "";
+  /* Without the parent being set to relative, this would set itself relative to the page */
+  position: absolute;
+  width: 95%;
+  /* Remove the width */
+  transform: scaleX(0) translateY(5px);
+  height: 4px;
+  bottom: 0;
+  left: 0;
+  background-color: #222034c0;
+  /* return to scale 0 from bottom right */
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.option:hover::before {
+  transform: scaleX(1) translateY(5px);
+  /* scale from the bottom left */
+  transform-origin: bottom left;
 }
 
 .site-wrap {

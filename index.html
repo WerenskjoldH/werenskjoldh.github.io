@@ -9,81 +9,36 @@
       href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="../webgl.css" type="text/css" />
+    <link rel="stylesheet" href="processingjs-style.css" type="text/css" />
+
+    <!-- Adds quick functionality for setting up and creating 3D environments -->
+    <script type="text/javascript" src="Libraries/ProcessingJS/p5.js"></script>
+    <script
+      type="text/javascript"
+      src="Libraries/ProcessingJS/addons/p5.dom.min.js"
+    ></script>
     <title>Hunter Werenskjold - WIP</title>
   </head>
   <body>
     <div class="site-wrap">
       <div id="navigation">
-        <div id="Logo-area" class="antihighlight"><p>Welcome_</p></div>
-        <div id="About-area" class="antihighlight option"><p>About Me</p></div>
-        <div id="Contact-area" class="antihighlight option"><p>Contact</p></div>
-        <div id="Accounts-area" class="antihighlight option">
-            <div class="button" onclick="openPage('https://github.com/WerenskjoldH')"">
+        <div id="Logo-area" class="antihighlight selectable"><p>Welcome_</p></div>
+        <div id="About-area" class="antihighlight"><p class="option selectable" >About Me</p></div>
+        <div id="Contact-area" class="antihighlight"><p class="option selectable" >Contact</p></div>
+        <div id="Accounts-area" class="antihighlight ">
+            <div class="button selectable" onclick="openPage('https://github.com/WerenskjoldH')"">
                 <image src="github-logo.png" alt="" class="icon" />
                 <image src="shadow.png" alt="" class="shadow" />
               </div>
         </div>
       </div>
 
-      <div id="simarea">
-        <canvas> </canvas>
-      </div>
+      <div id="simarea"></div>
     </div>
 
-    <script>
-        const btns = document.querySelectorAll(".button");
-        const imgs = document.querySelectorAll("img");
-    
-        function openPage(url) {
-          window.open(url);
-        }
-    
-        function deselectOption(opt)
-        {
-          opt.classList.remove("hovered");
-        }
-    
-        function selectOption(opt)
-        {
-          opt.classList.add("hovered");
-          currentSelection = opt;
-        }
-    
-        function onSelection(e) {
-          if (e.target.tagName == "P") return;
-    
-          selectOption(this);
-        }
-    
-        // 
-        function onClick(e) {
-          if (currentSelection == null) return;
-    
-          currentSelection.querySelector(".icon").classList.add("clicked");
-          currentSelection.querySelector(".shadow").classList.add("clicked");
-        }
-    
-        function onExit(e) {
-          if (currentSelection == null) return;
-    
-          currentSelection.querySelector(".icon").classList.remove("clicked");
-          currentSelection.querySelector(".shadow").classList.remove("clicked");
-          deselectOption(this);
-        }
-    
-        btns.forEach(btn => {
-          btn.addEventListener("mouseenter", onSelection);
-          btn.addEventListener("mousedown", onClick);
-          btn.addEventListener("mouseleave", onExit);
-          btn.addEventListener("mouseup", onExit);
-        });
-    
-        // Make images unable to be dragged
-        imgs.forEach(img => {
-          img.ondragstart = function() {
-            return false;
-          };
-        });
-      </script>
+    <script src="button.js"></script>
+    <script src="background.js"></script>
+
   </body>
 </html>
