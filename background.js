@@ -55,16 +55,16 @@ let click = false;
 let clickPrevious = false;
 
 const maxBackStars = 10;
-const minBackStarSpeed = 0.1;
+const minBackStarSpeed = 0.05;
 const maxBackStarSpeed = 0.5;
-const minBackStarRadius = 3;
+const minBackStarRadius = 1;
 const maxBackStarRadius = 10;
 
 const maxFrontStars = 8;
 const minFrontStarSpeed = 0.75;
-const maxFrontStarSpeed = 2.5;
+const maxFrontStarSpeed = 4;
 const minFrontStarRadius = 15;
-const maxFrontStarRadius = 28;
+const maxFrontStarRadius = 35;
 
 var backStars = new Array();
 var frontStars = new Array();
