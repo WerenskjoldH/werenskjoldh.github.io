@@ -43,6 +43,8 @@ body {
   position: relative;
   grid-area: simarea;
   background-color: #ffffff;
+  min-width: 500px;
+  min-height: 500px;
   z-index: 0;
 }
 
