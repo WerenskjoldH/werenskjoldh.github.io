@@ -1,9 +1,9 @@
 <!doctype HTML>
 <html>
 <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
-<script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.2/aframe/build/aframe-ar.js"> </script>
+<script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.2/aframe/build/aframe-ar.js"></script>
 <script>
-    alert("Starting script three");
+    alert("Starting script four");
 
     AFRAME.registerComponent('hiroevents', {
       init: function () {
@@ -19,7 +19,7 @@
       }
     });
     
-    AFRAME.registerComponent('hitoevents', {
+    AFRAME.registerComponent('kanjievents', {
       init: function () {
         var marker = this.el;
 
@@ -39,8 +39,9 @@
         <a-marker preset="hiro" id="marker-hiro" hiroevents>
         </a-marker>
 
-        <a-marker preset="hiro" id="marker-hito" hitoevents>
-      </a-marker>
+        <a-marker preset="kanji" id="marker-kanji" kanjievents>
+        </a-marker>
+
         <a-entity camera></a-entity>
     </a-scene>
 </body>
