@@ -3,35 +3,44 @@
 <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
 <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.2/aframe/build/aframe-ar.js"> </script>
 <script>
-    alert("Starting script two");
+    alert("Starting script three");
 
-    AFRAME.registerComponent('registerevents', {
-        init: function () {
-            var marker = this.el;
+    AFRAME.registerComponent('hiroevents', {
+      init: function () {
+          var marker = this.el;
 
-            // マーカーを検出したイベントの登録
-            marker.addEventListener('markerFound', function () {
-                var markerId = marker.id;
-                console.log('markerFound', markerId);
-                
-                alert("Openning Link")
-                window.open("https://www.google.com/", "_blank")
+          marker.addEventListener('markerFound', function () {
+              var markerId = marker.id;
+              console.log('Hiro marker found', markerId);
+              
+              alert("Opening Google Link")
+              window.open("https://www.google.com/", "_blank")
+          });
+      }
+    });
+    
+    AFRAME.registerComponent('hitoevents', {
+      init: function () {
+        var marker = this.el;
 
-                // アニメーションの開始
-                document.querySelector('#box').emit('markerfound');
-            });
-        }
+        marker.addEventListener('markerFound', function () {
+            var markerId = marker.id;
+            console.log('Hito marker found', markerId);
+            
+            alert("Opening Youtube Link")
+            window.open("https://www.youtube.com/", "_blank")
+        });
+      }
     });
 </script>
 
 <body style="margin : 0px; overflow: hidden;">
     <a-scene embedded arjs>
-        <a-marker preset="hiro" id="marker-hiro" registerevents>
-            <a-box id="box" position="0 0.5 0" wireframe="true">
-                <a-animation attribute="position" from="0 0.5 0" to="0 2.5 0" dur="5000" repeat="indefinite" begin="markerfound" end="markerlost">
-                </a-animation>
-            </a-box>
+        <a-marker preset="hiro" id="marker-hiro" hiroevents>
         </a-marker>
+
+        <a-marker preset="hiro" id="marker-hito" hitoevents>
+      </a-marker>
         <a-entity camera></a-entity>
     </a-scene>
 </body>
