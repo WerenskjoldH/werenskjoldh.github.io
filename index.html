@@ -13,18 +13,12 @@
             marker.addEventListener('markerFound', function () {
                 var markerId = marker.id;
                 console.log('markerFound', markerId);
+                
+                alert("Openning Link")
+                window.open("https://www.google.com/", "_blank")
 
                 // アニメーションの開始
                 document.querySelector('#box').emit('markerfound');
-            });
-
-            // マーカーを見失ったイベントの登録
-            marker.addEventListener('markerLost', function () {
-                var markerId = marker.id;
-                console.log('markerLost', markerId);
-
-                // アニメーションの停止
-                document.querySelector('#box').emit('markerlost');
             });
         }
     });
