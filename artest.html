@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>AR js demo</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://aframe.io/releases/0.7.1/aframe.min.js"></script>
+    <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
+    <script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v4.0.2/dist/aframe-extras.min.js"></script>
+  </head>
+  <body>
+    <a-scene arjs> 
+        <a-marker preset="hiro">
+          <a-entity id="tag"
+                    markerFound="openSite()"></a-entity>
+        </a-marker>
+    
+      </a-scene>
+
+      <script>
+            console.log('hi');
+
+            function openSite(e) {
+                window.open("https://www.google.com/", "_self");
+            }
+      </script>
+  </body>
+</html>
