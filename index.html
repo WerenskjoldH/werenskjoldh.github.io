@@ -1,45 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="main-style.css" />
-    <link
-      href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap"
-      rel="stylesheet"
-    />
-    <!-- Adds quick functionality for setting up and creating 3D environments -->
-    <script type="text/javascript" src="Libraries/ProcessingJS/p5.js"></script>
-    <script
-      type="text/javascript"
-      src="Libraries/ProcessingJS/addons/p5.dom.min.js"
-    ></script>
-    <title>Hunter Werenskjold - WIP</title>
+    <title>AR js demo</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://aframe.io/releases/0.7.1/aframe.min.js"></script>
+    <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
+    <script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v4.0.2/dist/aframe-extras.min.js"></script>
   </head>
   <body>
-    <div class="site-wrap">
-      <div id="Navigation">
-        <div id="Logo-area" class="antihighlight">
-            <p>Hunter</p>
-            <p id="Title-subtext">Werenskjold</p>
-        </div>
-        <div id="About-area" class="antihighlight"><p class="option selectable" >About Me</p></div>
-        <div id="Contact-area" class="antihighlight"><p class="option selectable" >Contact</p></div>
-		<div id="Hobbies-area" class="antihighlight"><p class="option selectable" >Hobbies</p></div>
-        <div id="Accounts-area" class="antihighlight ">
-            <div class="button selectable" onclick="openPage('https://github.com/WerenskjoldH')"">
-                <image src="github-logo.png" alt="" class="icon" />
-                <image src="shadow.png" alt="" class="shadow" />
-              </div>
-        </div>
-      </div>
+    <a-scene arjs> 
+        <a-marker preset="hiro">
+          <a-entity id="tag"
+                    markerFound="openSite()"></a-entity>
+        </a-marker>
+    
+      </a-scene>
 
-      <div id="Simarea"></div>
-    </div>
+      <script>
+            console.log('hi');
 
-    <script src="button.js"></script>
-    <script src="background.js"></script>
-
+            function openSite(e) {
+                window.open("https://www.google.com/", "_self");
+            }
+      </script>
   </body>
 </html>
