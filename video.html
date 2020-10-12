@@ -5,27 +5,8 @@
         <link rel="stylesheet" href="video.css">
     </head>
     <div class="site-wrap">
-
-        <script>
-            var videoElm = document.getElementById("storyVideo");
-
-            function openFullscreen() {
-                if (elem.requestFullscreen) {
-                    elem.requestFullscreen();
-                } else if (elem.mozRequestFullScreen) { /* Firefox */
-                    elem.mozRequestFullScreen();
-                } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
-                    elem.webkitRequestFullscreen();
-                } else if (elem.msRequestFullscreen) { /* IE/Edge */
-                    elem.msRequestFullscreen();
-                }
-            }
-
-            openFullscreen();
-        </script>
-
-        <video id="storyVideo" controls autoplay>
-            <source type="video/mp4" src="/Content/北風と太陽.mp4"/>
+        <video controls autoplay>
+            <source type="video/mp4" src="/Content/北風と太陽.mp4">
         </video>
     </div>
 </html>
