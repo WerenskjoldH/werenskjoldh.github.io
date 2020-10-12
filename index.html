@@ -3,16 +3,13 @@
 <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
 <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
 <script>
-    alert("Starting script eight");
-
-    AFRAME.registerComponent('hiroevents', {
+    AFRAME.registerComponent('frogstoryevents', {
       init: function () {
           var marker = this.el;
 
           marker.addEventListener('markerFound', function () {
               var markerId = marker.id;
               
-              alert("Opening Google Link")
               window.open("https://werenskjoldh.github.io/video.html", "_blank")
           });
       }
@@ -24,7 +21,6 @@
 
         marker.addEventListener('markerFound', function () {
             var markerId = marker.id;
-            console.log('Hito marker found', markerId);
             
             alert("Opening Youtube Link")
             window.open("https://www.youtube.com/", "_blank")
@@ -34,8 +30,8 @@
 </script>
 
 <body style="margin : 0px; overflow: hidden;">
-    <a-scene embedded arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;">
-        <a-nft type="nft" id="marker-hiro" url="Content/frogStory" hiroevents>
+    <a-scene embedded arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;">
+        <a-nft type="nft" id="frogstory-img" url="Content/frogStory" frogstoryevents>
         </a-nft>
 
         <a-marker preset="kanji" id="marker-kanji" kanjievents>
