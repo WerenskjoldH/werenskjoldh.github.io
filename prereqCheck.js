@@ -28,6 +28,7 @@ window.alert = function ( text ) {
     function hasCamera() {
         var cameraFound = false
 
+        var constraints = {video: true}
         navigator.mediaDevices.getUserMedia(constraints)
         .then(function(stream) {
             cameraFound = true
