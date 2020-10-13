@@ -50,13 +50,22 @@ window.onload = function() {
     localStorage.clear()
 
     function checkUserMedia() {
+        // How to wait for promise to return, THIS IS AN ISSUE
         navigator.mediaDevices.getUserMedia({video: true}).then(function(stream) {
             return true
         }).catch(function(err) {
             return false
         })
+    }
 
-        return false
+    async function findUserMedia() {
+        try {
+            let retVal = await checkUserMedia();
+
+            return retVal
+        }catch(e){
+            throw e
+        }
     }
 
     function OpenedInApp()
@@ -96,7 +105,14 @@ window.onload = function() {
         return
     }
 
-    if(!checkUserMedia())
+    foundUserMedia = false
+    findUserMedia().then(result => {
+        foundUserMedia = result
+    }).catch(err => {
+        foundUserMedia = false
+    })
+
+    if(foundUserMedia == false)
     {
         FailedToGetUserMedia()
         return
