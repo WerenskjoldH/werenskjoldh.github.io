@@ -63,8 +63,10 @@ window.onload = function() {
 
     navigator.mediaDevices.getUserMedia({video: true}).then(function(stream) {
         console.log("Got media")
+        prereqError.innerHTML = "Got Media"
     }).catch(function(err) {
         console.log("Unable to get media")
+        prereqError.innerHTML = "Unable To Get Media"
     })
 
     // Disable Alerts
