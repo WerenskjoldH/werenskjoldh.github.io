@@ -46,4 +46,14 @@ window.alert = function ( text ) {
 
   }
 
-  checkSupportedBrowser()
+navigator.permissions.query({name:'camera'}).then(function(result) {
+    if (result.state === 'granted') {
+        prereqElm.remove()
+    } else if (result.state === 'prompt') {
+        prereqElm.style.backgroundColor = "rgb(0, 100, 100)"
+    } else if (result.state === 'denied') {
+        prereqElm.style.backgroundColor = "rgb(228, 0, 0)"
+    }
+});
+
+  //checkSupportedBrowser()
