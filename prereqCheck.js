@@ -1,11 +1,12 @@
 var prereqElm = document.getElementById("prereq")
 
 function hasPrereqs() {
+    alert("Checking prereqs")
 
     navigator.getMedia = ( navigator.getUserMedia || // use the proper vendor prefix
         navigator.webkitGetUserMedia ||
         navigator.mozGetUserMedia ||
-        navigator.msGetUserMedia);
+        navigator.msGetUserMedia)
 
     navigator.getMedia({video: true}, function() {
         // webcam
