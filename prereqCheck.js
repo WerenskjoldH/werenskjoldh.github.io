@@ -47,16 +47,6 @@ window.onload = function() {
     var prereqElm = document.getElementById("prereq")
     var prereqError = document.getElementById("warningText")
 
-    function checkUserMedia() {
-        navigator.mediaDevices.getUserMedia({video: true}).then(function(stream) {
-            return true
-        }).catch(function(err) {
-            return false
-        })
-
-        return false
-    }
-
     function OpenedInApp()
     {
         // Adjust to "Open In Another App" content
@@ -69,19 +59,23 @@ window.onload = function() {
         prereqError.innerHTML = "Running Desktop"
     }
 
-    function FailedToGetUserMedia()
-    {
-        prereqError.innerHTML = "Unable to get user media"
-    }
+    var hasFailed = false
+    var reason = ""
 
     const inapp = new InApp(navigator.userAgent || navigator.vendor || navigator.opera)
+
+    navigator.mediaDevices.getUserMedia({video: true}).then(function(stream) {
+        console.log("Got media")
+        prereqError.innerHTML = "Got Media"
+    }).catch(function(err) {
+        console.log("Unable to get media")
+        prereqError.innerHTML = "Unable To Get Media"
+    })
 
     // Disable Alerts
     window.alert = function ( text ) {
         return true;
     };
-
-    // Support checks
 
     if(inapp.isInApp)
     {
@@ -94,13 +88,5 @@ window.onload = function() {
         return
     }
 
-    if(!checkUserMedia())
-    {
-        FailedToGetUserMedia()
-        return
-    }
-
-    // Success!!
-
-    prereqElm.remove()
+    //prereqElm.remove()
 }
