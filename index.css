@@ -14,5 +14,9 @@ body {
     background-color: black;
 }
 
+#prereq > h1 {
+    color: white;
+}
+
 #aScene {
 }
