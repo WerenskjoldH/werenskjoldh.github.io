@@ -1,25 +1,27 @@
 var prereqElm = document.getElementById("prereq")
 
-function checkPrereqs() {
+function hasPrereqs() {
     failedCheck = false
 
     navigator.mediaDevices.enumerateDevices().then(devices => {
         devices.forEach(d => {
             if(d.label == "")
             {
-                alert("Device unsupported");
                 failedCheck = true;
             }
         })
     })
 
-    if(!failedCheck)
+    return !failedCheck
+}
+
+navigator.mediaDevices.ondevicechange = function(e) {
+    hasPassed = hasPrereqs()
+
+    if(hasPassed)
     {
-        prereqElm.style.display = "none"
-    }
-    else{
-        const newElm = document.createTextNode("Error")
-        prereqElm.appendChild(newElm)
+        alert("Prereqs enabled")
+        prereqElm.remove();
     }
 }
 
