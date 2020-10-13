@@ -85,5 +85,5 @@ window.onload = function() {
         return
     }
 
-    prereqElm.remove()
+    //prereqElm.remove()
 }
