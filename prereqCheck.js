@@ -1,50 +1,52 @@
-var prereqElm = document.getElementById("prereq")
+window.onload = function() {
 
-// Disable Alerts
-window.alert = function ( text ) {
-    return true;
-  };
+    var prereqElm = document.getElementById("prereq")
 
-  function checkSupportedBrowser() {
+    // Disable Alerts
+    window.alert = function ( text ) {
+        return true;
+    };
 
-    function isSupportedBrowser() {
-        var isWebRTCSupported = navigator.getUserMedia ||
-        navigator.webkitGetUserMedia ||
-        navigator.mozGetUserMedia ||
-        navigator.msGetUserMedia;
+    function checkSupportedBrowser() {
 
-        if (window.navigator.userAgent.indexOf("Edge") > -1) {
-            return false;
+        function isSupportedBrowser() {
+            var isWebRTCSupported = navigator.getUserMedia ||
+            navigator.webkitGetUserMedia ||
+            navigator.mozGetUserMedia ||
+            navigator.msGetUserMedia;
+
+            if (window.navigator.userAgent.indexOf("Edge") > -1) {
+                return false;
+            }
+
+            if (isWebRTCSupported) {
+                return true;
+            }
+            else {
+                return false;
+            }
         }
 
-        if (isWebRTCSupported) {
-            return true;
+        function hasCamera() {
+            var cameraFound = false
+
+            navigator.mediaDevices.getUserMedia({ video: true })
+            .then(function (stream) {
+                cameraFound = true
+            })
+            .catch(function (err0r) {
+                cameraFound = false
+            });
+            
+            return cameraFound
         }
-        else {
-            return false;
-        }
+
+        if(!isSupportedBrowser() || !hasCamera())
+            prereqElm.style.backgroundColor = "rgb(228, 0, 0)"
+        else
+            prereqElm.remove();
+
     }
 
-    function hasCamera() {
-        var cameraFound = false
-
-        var constraints = {video: true}
-        navigator.mediaDevices.getUserMedia(constraints)
-        .then(function(stream) {
-            cameraFound = true
-        })
-        .catch(function(err) {
-            cameraFound = false
-        });
-
-        return cameraFound
-    }
-
-    if(!isSupportedBrowser() || !hasCamera())
-        prereqElm.style.backgroundColor = "rgb(228, 0, 0)"
-    else
-        prereqElm.remove();
-
-  }
-
-checkSupportedBrowser()
+    checkSupportedBrowser()
+}
