@@ -41,11 +41,16 @@ window.onload = function() {
             }
         }
 
-        if(!isSupportedBrowser() || !hasCamera())
+        if(!isSupportedBrowser() || !hasCamera()) {
+            console.log("Error")
+            document.getElementById("warningText").textContent = "Error"
             prereqElm.style.backgroundColor = "rgb(228, 0, 0)"
+        }
         else
+        {   
+            console.log("Success")
             prereqElm.remove();
-
+        }
     }
 
     PermissionStatus.onchange = function() {
