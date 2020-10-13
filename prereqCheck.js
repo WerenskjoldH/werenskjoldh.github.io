@@ -22,3 +22,5 @@ function checkPrereqs() {
         prereqElm.appendChild(newElm)
     }
 }
+
+checkPrereqs()
