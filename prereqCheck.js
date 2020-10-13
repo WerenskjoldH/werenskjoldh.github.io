@@ -47,7 +47,25 @@ window.onload = function() {
     var prereqElm = document.getElementById("prereq")
     var prereqError = document.getElementById("warningText")
 
+    function OpenedInApp()
+    {
+        // Adjust to "Open In Another App" content
+        prereqError.innerHTML = "Running InApp"
+    }
+
+    function OpenedInDesktop()
+    {
+        // Adjust to "Open On Mobile Device" content
+        prereqError.innerHTML = "Running Desktop"
+    }
+
     const inapp = new InApp(navigator.userAgent || navigator.vendor || navigator.opera)
+
+    navigator.mediaDevices.getUserMedia({video: true}).then(function(stream) {
+        console.log("Got media")
+    }).catch(function(err) {
+        console.log("Unable to get media")
+    })
 
     // Disable Alerts
     window.alert = function ( text ) {
@@ -56,14 +74,14 @@ window.onload = function() {
 
     if(inapp.isInApp)
     {
-        prereqError.innerHTML = "Running InApp"
+        OpenedInApp()
+        return
     }
     else if(inapp.isDesktop)
     {
-        prereqError.innerHTML = "Running Desktop"
+        OpenedInDesktop()
+        return
     }
-    else
-    {
-        prereqElm.remove()
-    }
+
+    prereqElm.remove()
 }
