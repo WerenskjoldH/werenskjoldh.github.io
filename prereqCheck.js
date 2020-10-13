@@ -7,6 +7,20 @@ window.onload = function() {
         return true;
     };
 
+    function hasCamera() {
+        var cameraFound = false
+
+        navigator.mediaDevices.getUserMedia({ video: true })
+        .then(function (stream) {
+            cameraFound = true
+        })
+        .catch(function (err0r) {
+            cameraFound = false
+        });
+        
+        return cameraFound
+    }
+
     function checkSupportedBrowser() {
 
         function isSupportedBrowser() {
@@ -27,20 +41,6 @@ window.onload = function() {
             }
         }
 
-        function hasCamera() {
-            var cameraFound = false
-
-            navigator.mediaDevices.getUserMedia({ video: true })
-            .then(function (stream) {
-                cameraFound = true
-            })
-            .catch(function (err0r) {
-                cameraFound = false
-            });
-            
-            return cameraFound
-        }
-
         if(!isSupportedBrowser() || !hasCamera())
             prereqElm.style.backgroundColor = "rgb(228, 0, 0)"
         else
@@ -48,5 +48,18 @@ window.onload = function() {
 
     }
 
+    async function WaitForPermission() {
+        while(true)
+        {
+            await new Promise(resolve => setTimeout(resolve, 500));
+            
+            if(hasCamera()) {
+                prereqElm.remove()
+                break
+            }
+        }
+    }
+
     checkSupportedBrowser()
+    WaitForPermission()
 }
