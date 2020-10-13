@@ -25,7 +25,21 @@ window.alert = function ( text ) {
         }
     }
 
-    if(!isSupportedBrowser())
+    function hasCamera() {
+        var cameraFound = false
+
+        navigator.mediaDevices.enumerateDevices().then(devices => {
+            devices.forEach(device => {
+                if(device.kind === "videoinput") {
+                    cameraFound = true
+                }
+            })
+        })
+
+        return cameraFound
+    }
+
+    if(!isSupportedBrowser() || !hasCamera())
         prereqElm.style.backgroundColor = "rgb(228, 0, 0)"
     else
         prereqElm.remove();
