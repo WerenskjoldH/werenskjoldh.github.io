@@ -1,18 +1,21 @@
 var prereqElm = document.getElementById("prereq")
 
 function hasPrereqs() {
-    failedCheck = false
 
-    navigator.mediaDevices.enumerateDevices().then(devices => {
-        devices.forEach(d => {
-            if(d.label == "")
-            {
-                failedCheck = true;
-            }
-        })
+    navigator.getMedia = ( navigator.getUserMedia || // use the proper vendor prefix
+        navigator.webkitGetUserMedia ||
+        navigator.mozGetUserMedia ||
+        navigator.msGetUserMedia);
+
+    navigator.getMedia({video: true}, function() {
+        // webcam
+        return true
+    }, function() {
+        // no webcam
+        return false
     })
 
-    return !failedCheck
+    return false
 }
 
 navigator.mediaDevices.ondevicechange = function(e) {
