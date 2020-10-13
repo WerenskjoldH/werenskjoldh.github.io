@@ -47,8 +47,6 @@ window.onload = function() {
     var prereqElm = document.getElementById("prereq")
     var prereqError = document.getElementById("warningText")
 
-    localStorage.clear()
-
     function OpenedInApp()
     {
         // Adjust to "Open In Another App" content
@@ -61,19 +59,12 @@ window.onload = function() {
         prereqError.innerHTML = "Running Desktop"
     }
 
-    function FailedToGetUserMedia()
-    {
-        prereqError.innerHTML = "Unable to get user media"
-    }
-
     const inapp = new InApp(navigator.userAgent || navigator.vendor || navigator.opera)
 
     // Disable Alerts
     window.alert = function ( text ) {
         return true;
     };
-
-    // Support checks
 
     if(inapp.isInApp)
     {
@@ -86,14 +77,13 @@ window.onload = function() {
         return
     }
 
-    prereqElm.innerHTML = "Please Share Camera"
-
     navigator.mediaDevices.getUserMedia({video: true}).then(function(stream) {
+        console.log("Got media")
         prereqElm.remove()
     }).catch(function(err) {
-        // Please refresh page and accept camera
-        FailedToGetUserMedia()
+        console.log("Unable to get media")
+        prereqError.innerHTML = "Unable to get media"
     })
 
-    // Unable to get camera access
+    
 }
