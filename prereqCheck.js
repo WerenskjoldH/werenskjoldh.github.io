@@ -1,35 +1,8 @@
 var prereqElm = document.getElementById("prereq")
 
-function hasPrereqs() {
-    alert("Checking prereqs")
-
-    navigator.getMedia = ( navigator.getUserMedia || // use the proper vendor prefix
-        navigator.webkitGetUserMedia ||
-        navigator.mozGetUserMedia ||
-        navigator.msGetUserMedia)
-
-    navigator.getMedia({video: true}, function() {
-        // webcam
-        return true
-    }, function() {
-        // no webcam
-        return false
-    })
-
-    return false
-}
-
-navigator.mediaDevices.ondevicechange = function(e) {
-    hasPassed = hasPrereqs()
-
-    if(hasPassed)
-    {
-        alert("Prereqs enabled")
-        prereqElm.remove();
-    }
-    else{
-        alert("Prereqs failed")
-    }
-}
-
-checkPrereqs()
+navigator.mediaDevices.getUserMedia({video: true}).then(function(mediaStream) {
+    alert("Access allowed")
+    prereqElm.remove();
+}).catch(e => {
+    alert("error")
+})
