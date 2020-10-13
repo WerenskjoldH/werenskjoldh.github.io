@@ -49,25 +49,6 @@ window.onload = function() {
 
     localStorage.clear()
 
-    function checkUserMedia() {
-        // How to wait for promise to return, THIS IS AN ISSUE
-        navigator.mediaDevices.getUserMedia({video: true}).then(function(stream) {
-            return true
-        }).catch(function(err) {
-            return false
-        })
-    }
-
-    async function findUserMedia() {
-        try {
-            let retVal = await checkUserMedia();
-
-            return retVal
-        }catch(e){
-            throw e
-        }
-    }
-
     function OpenedInApp()
     {
         // Adjust to "Open In Another App" content
@@ -112,13 +93,11 @@ window.onload = function() {
         foundUserMedia = false
     })
 
-    if(foundUserMedia == false)
-    {
+    prereqElm.innerHTML = "Please Share Camera"
+
+    navigator.mediaDevices.getUserMedia({video: true}).then(function(stream) {
+        prereqElm.remove()
+    }).catch(function(err) {
         FailedToGetUserMedia()
-        return
-    }
-
-    // Success!!
-
-    prereqElm.remove()
+    })
 }
