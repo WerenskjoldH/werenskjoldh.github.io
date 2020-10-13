@@ -26,7 +26,7 @@ window.alert = function ( text ) {
     }
 
     if(!isSupportedBrowser())
-        window.location = "https://www.google.com";
+        prereqElm.style.backgroundColor = "rgb(228, 0, 0)"
     else
         prereqElm.remove();
 
