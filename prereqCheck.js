@@ -86,18 +86,14 @@ window.onload = function() {
         return
     }
 
-    foundUserMedia = false
-    findUserMedia().then(result => {
-        foundUserMedia = result
-    }).catch(err => {
-        foundUserMedia = false
-    })
-
     prereqElm.innerHTML = "Please Share Camera"
 
     navigator.mediaDevices.getUserMedia({video: true}).then(function(stream) {
         prereqElm.remove()
     }).catch(function(err) {
+        // Please refresh page and accept camera
         FailedToGetUserMedia()
     })
+
+    // Unable to get camera access
 }
