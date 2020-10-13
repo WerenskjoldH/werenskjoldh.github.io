@@ -32,3 +32,4 @@ window.alert = function ( text ) {
 
   }
 
+  checkSupportedBrowser()
