@@ -64,6 +64,6 @@ window.onload = function() {
     }
     else
     {
-        prereqError.remove()
+        prereqElm.remove()
     }
 }
