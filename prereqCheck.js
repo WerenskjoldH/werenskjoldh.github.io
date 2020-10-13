@@ -27,6 +27,9 @@ navigator.mediaDevices.ondevicechange = function(e) {
         alert("Prereqs enabled")
         prereqElm.remove();
     }
+    else{
+        alert("Prereqs failed")
+    }
 }
 
 checkPrereqs()
