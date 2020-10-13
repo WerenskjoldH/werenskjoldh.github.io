@@ -1,61 +1,26 @@
+const InApp = require("./inapp");
+
 window.onload = function() {
 
     var prereqElm = document.getElementById("prereq")
+    var prereqError = document.getElementById("warningText")
 
     // Disable Alerts
     window.alert = function ( text ) {
         return true;
     };
 
-    function hasCamera() {
-        var cameraFound = false
-
-        navigator.mediaDevices.getUserMedia({ video: true })
-        .then(function (stream) {
-            cameraFound = true
-        })
-        .catch(function (err0r) {
-            cameraFound = false
-        });
-        
-        return cameraFound
+    if(InApp.isInApp())
+    {
+        prereqError.innerHTML = "Running InApp"
     }
-
-    function checkSupportedBrowser() {
-
-        function isSupportedBrowser() {
-            var isWebRTCSupported = navigator.getUserMedia ||
-            navigator.webkitGetUserMedia ||
-            navigator.mozGetUserMedia ||
-            navigator.msGetUserMedia;
-
-            if (window.navigator.userAgent.indexOf("Edge") > -1) {
-                return false;
-            }
-
-            if (isWebRTCSupported) {
-                return true;
-            }
-            else {
-                return false;
-            }
-        }
-
-        if(!isSupportedBrowser() || !hasCamera()) {
-            console.log("Error")
-            document.getElementById("warningText").textContent = "Error"
-            prereqElm.style.backgroundColor = "rgb(228, 0, 0)"
-        }
-        else
-        {   
-            console.log("Success")
-            prereqElm.remove();
-        }
+    else if(InApp.inDesktop())
+    {
+        prereqError.innerHTML = "Running Desktop"
     }
-
-    PermissionStatus.onchange = function() {
-        checkSupportedBrowser()
+    else
+    {
+        prereqError.innerHTML = "Pass"
+        prereqElm.style.backgroundColor = "rgb(43, 255, 0)"
     }
-
-    checkSupportedBrowser()
 }
