@@ -28,13 +28,13 @@ window.alert = function ( text ) {
     function hasCamera() {
         var cameraFound = false
 
-        navigator.mediaDevices.enumerateDevices().then(devices => {
-            devices.forEach(device => {
-                if(device.kind === "videoinput") {
-                    cameraFound = true
-                }
-            })
+        navigator.mediaDevices.getUserMedia(constraints)
+        .then(function(stream) {
+            cameraFound = true
         })
+        .catch(function(err) {
+            cameraFound = false
+        });
 
         return cameraFound
     }
@@ -46,14 +46,4 @@ window.alert = function ( text ) {
 
   }
 
-navigator.permissions.query({name:'camera'}).then(function(result) {
-    if (result.state === 'granted') {
-        prereqElm.remove()
-    } else if (result.state === 'prompt') {
-        prereqElm.style.backgroundColor = "rgb(0, 100, 100)"
-    } else if (result.state === 'denied') {
-        prereqElm.style.backgroundColor = "rgb(228, 0, 0)"
-    }
-});
-
-  //checkSupportedBrowser()
+checkSupportedBrowser()
