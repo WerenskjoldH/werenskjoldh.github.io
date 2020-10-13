@@ -48,18 +48,9 @@ window.onload = function() {
 
     }
 
-    async function WaitForPermission() {
-        while(true)
-        {
-            await new Promise(resolve => setTimeout(resolve, 500));
-            
-            if(hasCamera()) {
-                prereqElm.remove()
-                break
-            }
-        }
+    PermissionStatus.onchange = function() {
+        checkSupportedBrowser()
     }
 
     checkSupportedBrowser()
-    WaitForPermission()
 }
