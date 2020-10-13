@@ -47,6 +47,8 @@ window.onload = function() {
     var prereqElm = document.getElementById("prereq")
     var prereqError = document.getElementById("warningText")
 
+    localStorage.clear()
+
     function OpenedInApp()
     {
         // Adjust to "Open In Another App" content
