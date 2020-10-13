@@ -54,9 +54,6 @@ window.onload = function() {
         return true;
     };
 
-    console.log(inapp.isDesktop)
-    console.log(inapp.isInApp)
-
     if(inapp.isInApp)
     {
         prereqError.innerHTML = "Running InApp"
@@ -67,7 +64,6 @@ window.onload = function() {
     }
     else
     {
-        prereqError.innerHTML = "Pass"
-        prereqElm.style.backgroundColor = "rgb(43, 255, 0)"
+        prereqError.remove()
     }
 }
