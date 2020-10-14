@@ -46,9 +46,13 @@ class InApp {
 var prereqElm 
 var prereqError
 
+var loadingScreenElm
+
 window.onload = function() {
     prereqElm = document.getElementById("prereq")
     prereqError = document.getElementById("warningText")
+
+    loadingScreenElm = document.getElementById("loading-screen")
 
     function OpenedInApp()
     {
@@ -105,8 +109,9 @@ window.addEventListener('camera-init', CameraSuccess)
 
 window.addEventListener('camera-error', CameraFailed);
 
-// function FinishedLoading() {
-//     console.log("Finished Loading")
-// }
+function FinishedLoading(e) {
+    console.log("Finished Loading")
+    loadingScreenElm.classList.add("invisible")
+}
 
-// document.querySelector('a-assets').addEventListener('loaded', FinishedLoading)
+window.addEventListener('arjs-nft-loaded', FinishedLoading)

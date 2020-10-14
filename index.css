@@ -45,6 +45,11 @@ body {
     color: yellow;
 }
 
+.invisible {
+    display: none !important;
+    opacity: 0 !important;
+}
+
 #embeddedScene {
     position: fixed;
     top: 0px;
