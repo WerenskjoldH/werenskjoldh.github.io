@@ -34,6 +34,17 @@ body {
     color: white;
 }
 
+#loading-screen {
+    position: fixed;
+
+    top: 0px;
+    right: 0px;
+    width: 100%;
+    height: 100%;
+
+    color: yellow;
+}
+
 #embeddedScene {
     position: fixed;
     top: 0px;
@@ -44,7 +55,3 @@ body {
 
     z-index: 10;
 }
-
-.a-loader-title {
-    color: red;
-  }

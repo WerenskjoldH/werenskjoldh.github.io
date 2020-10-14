@@ -104,3 +104,9 @@ function CameraFailed(error) {
 window.addEventListener('camera-init', CameraSuccess)
 
 window.addEventListener('camera-error', CameraFailed);
+
+function FinishedLoading() {
+    console.log("Finished Loading")
+}
+
+document.querySelector('a-assets').addEventListener('loaded', FinishedLoading)
