@@ -34,7 +34,7 @@ body {
     color: white;
 }
 
-#arjs-video {
+/* #arjs-video {
     position: absolute; 
     width: 100%; 
     height: 100%; 
@@ -43,4 +43,4 @@ body {
     z-index: -2; 
     margin-left: -49.5px; 
     margin-top: 0px;
-}
+} */
