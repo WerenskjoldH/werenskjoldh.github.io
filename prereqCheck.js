@@ -50,18 +50,18 @@ window.onload = function() {
     function OpenedInApp()
     {
         // Adjust to "Open In Another App" content
-        //prereqError.innerHTML = "Running InApp"
+        prereqError.innerHTML = "Running InApp"
     }
 
     function OpenedInDesktop()
     {
         // Adjust to "Open On Mobile Device" content
-        //prereqError.innerHTML = "Running Desktop"
+        prereqError.innerHTML = "Running Desktop"
     }
 
     function FailedToGetUserMedia()
     {
-        //prereqError.innerHTML = "Unable to get user media"
+        prereqError.innerHTML = "Unable to get user media"
     }
 
     const inapp = new InApp(navigator.userAgent || navigator.vendor || navigator.opera)
@@ -87,7 +87,7 @@ window.onload = function() {
 
     navigator.mediaDevices.getUserMedia({video: true}).then(function(stream) {
         console.log("Media Allowed")
-        //prereqElm.remove()
+        prereqElm.remove()
         return true
     }).catch(function(err) {
         console.log("Media Denied")
