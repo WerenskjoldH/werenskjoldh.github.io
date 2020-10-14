@@ -12,24 +12,15 @@
 </head>
 
 <body>
-    <div id="prereq">
-      <h1 id="warningText">
-        
-      </h1>
-    </div>
+    <a-scene embedded arjs="trackingMethod: best; debugUIEnabled: false;">
+        <a-nft type="nft" id="frogstory-img" url="Content/frogStory" frogstoryevents>
+        </a-nft>
 
-    <div id="embeddedScene">
-      <a-scene embedded arjs="trackingMethod: best; debugUIEnabled: false;">
-          <a-nft type="nft" id="frogstory-img" url="Content/frogStory" frogstoryevents>
-          </a-nft>
+        <a-marker preset="kanji" id="marker-kanji" kanjievents>
+        </a-marker>
 
-          <a-marker preset="kanji" id="marker-kanji" kanjievents>
-          </a-marker>
-
-          <a-entity camera></a-entity>
-      </a-scene>
-   </div>
-    <video id="arjs-video" autoplay="" muted="" playsinline=""></video>
+        <a-entity camera></a-entity>
+    </a-scene>
 </body>
 
 </html>
