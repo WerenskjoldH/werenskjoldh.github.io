@@ -93,3 +93,11 @@ function CameraError() {
 function CameraSuccess() {
     prereqElm.remove()
 }
+
+window.addEventListener('camera-init', (data) => {
+    CameraSuccess()
+})
+
+window.addEventListener('camera-error', (error) => {
+    CameraError()
+})
