@@ -1,4 +1,4 @@
-body, #sceneArea {
+body {
     /* position: fixed; */
 
     margin: 0px;
@@ -32,6 +32,17 @@ body, #sceneArea {
 
 #prereq > h1 {
     color: white;
+}
+
+#embeddedScene {
+    position: fixed;
+    top: 0px;
+    right: 0px;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: 10;
 }
 
 /* #arjs-video {
