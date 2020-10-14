@@ -49,8 +49,10 @@ window.onload = function() {
 
     function checkUserMedia() {
         navigator.mediaDevices.getUserMedia({video: true}).then(function(stream) {
+            console.log("Media Allowed")
             return true
         }).catch(function(err) {
+            console.log("Media Denied")
             return false
         })
 
