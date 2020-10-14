@@ -43,9 +43,13 @@ class InApp {
 
 // ************************************************
 
+var browserPass = false
+var prereqElm 
+var prereqError
+
 window.onload = function() {
-    var prereqElm = document.getElementById("prereq")
-    var prereqError = document.getElementById("warningText")
+    prereqElm = document.getElementById("prereq")
+    prereqError = document.getElementById("warningText")
 
     function OpenedInApp()
     {
@@ -57,11 +61,6 @@ window.onload = function() {
     {
         // Adjust to "Open On Mobile Device" content
         prereqError.innerHTML = "Running Desktop"
-    }
-
-    function FailedToGetUserMedia()
-    {
-        prereqError.innerHTML = "Unable to get user media"
     }
 
     const inapp = new InApp(navigator.userAgent || navigator.vendor || navigator.opera)
@@ -82,17 +81,15 @@ window.onload = function() {
     {
         OpenedInDesktop()
         return
-    }
+    }    
 
+    browserPass = true
+}
 
-    // navigator.mediaDevices.getUserMedia({video: true}).then(function(stream) {
-    //     console.log("Media Allowed")
-    //     prereqElm.remove()
-    //     return true
-    // }).catch(function(err) {
-    //     console.log("Media Denied")
-    //     FailedToGetUserMedia()
-    // })
+function CameraError() {
+    prereqError.innerHTML = "Unable to get user media"
+}
 
-    
+function CameraSuccess() {
+    prereqElm.remove()
 }
