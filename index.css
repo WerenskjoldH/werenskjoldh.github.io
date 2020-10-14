@@ -45,11 +45,6 @@ body {
     z-index: 10;
 }
 
-/* #arjs-video {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    z-index: -2;
-    margin-left: -49.5px;
-    margin-top: 0px;
-} */
+.a-loader-title {
+    color: red;
+  }
