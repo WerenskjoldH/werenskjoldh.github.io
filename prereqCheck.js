@@ -87,12 +87,12 @@ window.onload = function() {
 
     navigator.mediaDevices.getUserMedia({video: true}).then(function(stream) {
         console.log("Media Allowed")
-        
+        prereqElm.remove()
         return true
     }).catch(function(err) {
         console.log("Media Denied")
         FailedToGetUserMedia()
     })
 
-    prereqElm.remove()
+    
 }
