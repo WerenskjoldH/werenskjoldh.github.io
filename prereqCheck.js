@@ -43,7 +43,6 @@ class InApp {
 
 // ************************************************
 
-var browserPass = false
 var prereqElm 
 var prereqError
 
@@ -53,14 +52,22 @@ window.onload = function() {
 
     function OpenedInApp()
     {
+        RemoveListeners()
         // Adjust to "Open In Another App" content
         prereqError.innerHTML = "Running InApp"
     }
 
     function OpenedInDesktop()
     {
+        RemoveListeners()
         // Adjust to "Open On Mobile Device" content
         prereqError.innerHTML = "Running Desktop"
+    }
+
+    function RemoveListeners()
+    {
+        window.removeEventListener('camera-init', CameraSuccess)
+        window.removeEventListener('camera-error', CameraFailed)
     }
 
     const inapp = new InApp(navigator.userAgent || navigator.vendor || navigator.opera)
@@ -83,19 +90,17 @@ window.onload = function() {
         return
     }    
 
-    browserPass = true
+    // Success
 }
 
-window.addEventListener('camera-init', (data) => {
-    if(!browserPass)
-        return
-
+function CameraSuccess(data) {
     prereqElm.remove()
-})
+}
 
-window.addEventListener('camera-error', (error) => {
-    if(!browserPass)
-        return
-
+function CameraFailed(error) {
     prereqError.innerHTML = "Unable to get user media"
-})
+}
+
+window.addEventListener('camera-init', CameraSuccess)
+
+window.addEventListener('camera-error', CameraFailed);
