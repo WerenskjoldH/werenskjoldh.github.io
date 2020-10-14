@@ -86,18 +86,16 @@ window.onload = function() {
     browserPass = true
 }
 
-function CameraError() {
-    prereqError.innerHTML = "Unable to get user media"
-}
-
-function CameraSuccess() {
-    prereqElm.remove()
-}
-
 window.addEventListener('camera-init', (data) => {
-    CameraSuccess()
+    if(!browserPass)
+        return
+
+    prereqElm.remove()
 })
 
 window.addEventListener('camera-error', (error) => {
-    CameraError()
+    if(!browserPass)
+        return
+
+    prereqError.innerHTML = "Unable to get user media"
 })
