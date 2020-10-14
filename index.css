@@ -1,10 +1,12 @@
 body {
     margin: 0px;
     overflow: hidden;
+
+    z-index: 1;
 }
 
 #prereq {
-    position: absolute;
+    position: fixed;
     top: 0px;
     right: 0px;
 
@@ -15,6 +17,8 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    z-index: 100;
 
     background-color: rgb(85, 85, 85);
 }
