@@ -16,8 +16,8 @@
 <body>
     <div id="prereq">
       <!-- BG Stars -->
-      <img id="left-star" src="Content/star.png"/>
-      <img id="right-star" src="Content/star.png"/>
+      <img id="left-star" src="./Content/star.png"/>
+      <img id="right-star" src="./Content/star.png"/>
 
       <div id="allowance-screen">
         <div id="allowance-text-area">
@@ -32,7 +32,7 @@
       </div>
 
       <div id="inapp-screen" class="invisible">
-        <img id="play-button" src="Content/playButton.png" onclick="OpenWithPopup()"/>
+        <img id="play-button" src="./Content/playButton.png" onclick="OpenWithPopup()"/>
         <div id="inapp-text-area">
           <p id="launch-text">LAUNCH</p>
           <p id="different-browser-text">Please select another browser</p>
@@ -52,7 +52,7 @@
     </div>
 
     <a-scene arjs="trackingMethod: best; debugUIEnabled: false;">
-        <a-nft type="nft" id="frogstory-img" url="Content/frogStory" frogstoryevents>
+        <a-nft type="nft" id="frogstory-img" url="./Content/frogStory" frogstoryevents>
         </a-nft>
 
         <a-marker preset="kanji" id="marker-kanji" kanjievents>
