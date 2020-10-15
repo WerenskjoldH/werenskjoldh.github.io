@@ -57,6 +57,9 @@ window.onload = function() {
     function OpenedInApp()
     {
         RemoveListeners()
+
+        document.getElementById("inapp-screen").classList.remove("invisible")
+
         // Adjust to "Open In Another App" content
         prereqError.innerHTML = "Running InApp"
     }
