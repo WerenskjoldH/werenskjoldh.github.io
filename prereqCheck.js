@@ -54,20 +54,28 @@ window.onload = function() {
 
     function OpenedInApp()
     {
-        document.getElementById("inapp-screen").classList.remove("invisible")
-
         RemoveListeners()
+
+        document.getElementById("inapp-screen").classList.remove("invisible")
     }
 
     function OpenedInDesktop()
     {
         RemoveListeners()
+
+        document.getElementById("desktop-screen").classList.remove("invisible")
     }
 
     function RemoveListeners()
     {
+        DisableAllowanceScreen()
         window.removeEventListener('camera-init', CameraSuccess)
         window.removeEventListener('camera-error', CameraFailed)
+    }
+
+    function DisableAllowanceScreen()
+    {
+        document.getElementById("allowance-screen").classList.add("invisible")
     }
 
     const inapp = new InApp(navigator.userAgent || navigator.vendor || navigator.opera)
@@ -95,10 +103,12 @@ window.onload = function() {
 }
 
 function CameraSuccess(data) {
+    DisableAllowanceScreen()
     prereqElm.remove()
 }
 
 function CameraFailed(error) {
+    DisableAllowanceScreen()
     document.getElementById("unaccessible-media-screen").classList.remove("invisible")
 }
 
@@ -112,3 +122,8 @@ function FinishedLoading(e) {
 }
 
 window.addEventListener('arjs-nft-loaded', FinishedLoading)
+
+function OpenWithPopup() {
+    console.log("Opening Externally")
+    window.open(encodeURI("https://werenskjoldh.github.io/"), "_system")
+}

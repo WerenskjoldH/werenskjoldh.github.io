@@ -19,8 +19,20 @@
       <img id="left-star" src="Content/star.png"/>
       <img id="right-star" src="Content/star.png"/>
 
+      <div id="allowance-screen">
+        <div id="allowance-text-area">
+          <p id="allowance-text">Please Allow Camera Access</p>
+        </div>
+      </div>
+
+      <div id="desktop-screen" class="invisible">
+        <div id="desktop-text-area">
+          <p id="desktop-text">Please Use A Mobile Device</p>
+        </div>
+      </div>
+
       <div id="inapp-screen" class="invisible">
-        <img id="play-button" src="Content/playButton.png"/>
+        <img id="play-button" src="Content/playButton.png" onclick="OpenWithPopup()"/>
         <div id="inapp-text-area">
           <p id="launch-text">LAUNCH</p>
           <p id="different-browser-text">Please select another browser</p>
