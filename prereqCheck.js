@@ -44,31 +44,24 @@ class InApp {
 // ************************************************
 
 var prereqElm 
-var prereqError
 
 var loadingScreenElm
 
 window.onload = function() {
     prereqElm = document.getElementById("prereq")
-    prereqError = document.getElementById("warningText")
 
     loadingScreenElm = document.getElementById("loading-screen")
 
     function OpenedInApp()
     {
         RemoveListeners()
-
-        document.getElementById("inapp-screen").classList.remove("invisible")
-
-        // Adjust to "Open In Another App" content
-        prereqError.innerHTML = "Running InApp"
     }
 
     function OpenedInDesktop()
     {
         RemoveListeners()
-        // Adjust to "Open On Mobile Device" content
-        prereqError.innerHTML = "Running Desktop"
+
+        document.getElementById("inapp-screen").classList.remove("invisible")
     }
 
     function RemoveListeners()
@@ -105,7 +98,7 @@ function CameraSuccess(data) {
 }
 
 function CameraFailed(error) {
-    prereqError.innerHTML = "Unable to get user media"
+    document.getElementById("inapp-screen").classList.remove("invisible")
 }
 
 window.addEventListener('camera-init', CameraSuccess)

@@ -67,13 +67,15 @@ body {
     color: white;
 }
 
-.text-area {
+#inapp-text-area {
     margin: auto;
     text-align: center;
     justify-content: space-evenly;
 
     position: relative;
-    top: 65%;
+    top: 68%;
+
+    transform: translateY(-50%);
 }
 
 #play-button {
@@ -107,6 +109,45 @@ body {
     margin-right: -0.2em;
 
     text-shadow: 4px 4px 5x #000000;
+}
+
+#unaccessible-media-screen {
+    position: fixed;
+
+    top: 0%;
+    right: 0px;
+    width: 100%;
+    height: 100%;
+
+    color: white;
+}
+
+#media-text-area {
+    margin: auto;
+    text-align: center;
+    justify-content: space-evenly;
+
+    position: relative;
+    top: 50%;
+
+    transform: translateY(-50%);
+}
+
+#access-text {
+    font-weight: bold;
+    font-size: 5vw;
+    letter-spacing: .8em;
+    margin-right: -.8em;
+
+    text-shadow: 4px 4px 10px #000000;
+}
+
+#access-description-text {
+    font-weight: 500;
+    font-size: 4vw;
+
+    letter-spacing: 0.2em;
+    margin-right: -0.2em;
 }
 
 #loading-screen {
