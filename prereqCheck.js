@@ -54,14 +54,13 @@ window.onload = function() {
 
     function OpenedInApp()
     {
+        document.getElementById("inapp-screen").classList.remove("invisible")
         RemoveListeners()
     }
 
     function OpenedInDesktop()
     {
         RemoveListeners()
-
-        document.getElementById("inapp-screen").classList.remove("invisible")
     }
 
     function RemoveListeners()
