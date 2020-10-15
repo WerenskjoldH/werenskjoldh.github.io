@@ -68,14 +68,9 @@ window.onload = function() {
 
     function RemoveListeners()
     {
-        DisableAllowanceScreen()
+        document.getElementById("allowance-screen").classList.add("invisible")
         window.removeEventListener('camera-init', CameraSuccess)
         window.removeEventListener('camera-error', CameraFailed)
-    }
-
-    function DisableAllowanceScreen()
-    {
-        document.getElementById("allowance-screen").classList.add("invisible")
     }
 
     const inapp = new InApp(navigator.userAgent || navigator.vendor || navigator.opera)
@@ -103,12 +98,12 @@ window.onload = function() {
 }
 
 function CameraSuccess(data) {
-    DisableAllowanceScreen()
+    document.getElementById("allowance-screen").classList.add("invisible")
     prereqElm.remove()
 }
 
 function CameraFailed(error) {
-    DisableAllowanceScreen()
+    document.getElementById("allowance-screen").classList.add("invisible")
     document.getElementById("unaccessible-media-screen").classList.remove("invisible")
 }
 
@@ -125,5 +120,5 @@ window.addEventListener('arjs-nft-loaded', FinishedLoading)
 
 function OpenWithPopup() {
     console.log("Opening Externally")
-    window.open(encodeURI("https://werenskjoldh.github.io/"), "_system")
+    window.open(encodeURI("https://www.hunter-scs.com/index.html"), "_system")
 }
