@@ -98,7 +98,7 @@ function CameraSuccess(data) {
 }
 
 function CameraFailed(error) {
-    document.getElementById("inapp-screen").classList.remove("invisible")
+    document.getElementById("unaccessible-media-screen").classList.remove("invisible")
 }
 
 window.addEventListener('camera-init', CameraSuccess)

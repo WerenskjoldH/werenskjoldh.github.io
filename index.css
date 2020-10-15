@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 4 version
+*/
+
 body {
     /* position: fixed; */
 
@@ -21,7 +28,11 @@ body {
     top: 5%;
     left: 5%;
 
-    transform: rotate(-30deg) scaleX(0.6);
+    -webkit-transform: rotate(-30deg) scaleX(0.6);
+
+        -ms-transform: rotate(-30deg) scaleX(0.6);
+
+            transform: rotate(-30deg) scaleX(0.6);
 }
 
 #right-star {
@@ -31,7 +42,11 @@ body {
     top: 20%;
     right: 8%;
 
-    transform: rotate(30deg) scale(0.8) scaleX(0.6);
+    -webkit-transform: rotate(30deg) scale(0.8) scaleX(0.6);
+
+        -ms-transform: rotate(30deg) scale(0.8) scaleX(0.6);
+
+            transform: rotate(30deg) scale(0.8) scaleX(0.6);
 }
 
 #prereq {
@@ -42,10 +57,21 @@ body {
     width: 100%;
     height: 100%;
 
+    display: -webkit-box;
+
+    display: -ms-flexbox;
+
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 
     z-index: 100;
 
@@ -70,18 +96,28 @@ body {
 #inapp-text-area {
     margin: auto;
     text-align: center;
-    justify-content: space-evenly;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
 
     position: relative;
     top: 68%;
 
-    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+
+        -ms-transform: translateY(-50%);
+
+            transform: translateY(-50%);
 }
 
 #play-button {
     position: absolute;
 
-    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+
+        -ms-transform: translate(-50%, -50%);
+
+            transform: translate(-50%, -50%);
 
     top: 50%;
     left: 50%;
@@ -125,12 +161,18 @@ body {
 #media-text-area {
     margin: auto;
     text-align: center;
-    justify-content: space-evenly;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
 
     position: relative;
     top: 50%;
 
-    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+
+        -ms-transform: translateY(-50%);
+
+            transform: translateY(-50%);
 }
 
 #access-text {
@@ -158,10 +200,21 @@ body {
     width: 100%;
     height: 100%;
 
+    display: -webkit-box;
+
+    display: -ms-flexbox;
+
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 
     z-index: 50;
 
