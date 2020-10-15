@@ -55,6 +55,9 @@ window.onload = function() {
     function OpenedInApp()
     {
         document.getElementById("inapp-screen").classList.remove("invisible")
+
+        prereqElm.style.color = "#ffffff"
+
         RemoveListeners()
     }
 
