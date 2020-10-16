@@ -1,12 +1,27 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
+        <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1,maximum-scale=1, minimal-ui" />
+        <script src="https://raw.githack.com/sindresorhus/screenfull.js/master/dist/screenfull.min.js"></script>
         <link rel="stylesheet" href="video.css">
     </head>
-    <div class="site-wrap">
-        <video controls playsinline autoplay>
+    <div class="site-wrap safari_only">
+        <!-- https://webkit.org/blog/6784/new-video-policies-for-ios/ -->
+        <!-- https://developers.google.com/web/updates/2017/09/autoplay-policy-changes -->
+        <video controls playsinline autoplay="autoplay" id="storyVideo">
             <source type="video/mp4" src="Content/storyEX.mp4">
         </video>
+
+        <script>
+            window.scrollTo(0,document.body.scrollHeight);
+
+            document.getElementById("storyVideo").addEventListener('click', () => {
+                if (screenfull.isEnabled) {
+                    screenfull.request();
+                } else {
+                    console.log("Error Going Fullscreen")
+                }
+            });
+        </script>
     </div>
 </html>

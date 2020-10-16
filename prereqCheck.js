@@ -56,6 +56,12 @@ window.onload = function() {
     {
         RemoveListeners()
 
+        if(navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPod/i)) {
+            document.getElementById("another-browser-a").href = "safari://www.hunter-scs.com/"
+        } else {
+            document.getElementById("another-browser-a").href = "intent://www.hunter-scs.com/#Intent;scheme=https;action=android.intent.action.VIEW;end;"
+        }
+
         document.getElementById("inapp-screen").classList.remove("invisible")
     }
 
@@ -118,7 +124,3 @@ function FinishedLoading(e) {
 
 window.addEventListener('arjs-nft-loaded', FinishedLoading)
 
-function OpenWithPopup() {
-    console.log("Opening Externally")
-    window.open(encodeURI("https://www.hunter-scs.com/index.html"), "_system")
-}
