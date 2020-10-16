@@ -5,7 +5,7 @@ AFRAME.registerComponent('frogstoryevents', {
         marker.addEventListener('markerFound', function () {
             var markerId = marker.id;
             
-            window.open("https://werenskjoldh.github.io/video.html", "_blank")
+            window.open("https://www.hunter-scs.com/video.html", "_blank")
         });
     }
   });
