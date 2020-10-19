@@ -48,6 +48,8 @@ var prereqElm
 var loadingScreenElm
 
 window.onload = function() {
+    console.log("Correct OS & Browser")
+
     prereqElm = document.getElementById("prereq")
 
     loadingScreenElm = document.getElementById("loading-screen")
@@ -101,11 +103,15 @@ window.onload = function() {
     }    
 
     // Success
+
+    console.log("Correct OS & Browser")
 }
 
 function CameraSuccess(data) {
+    console.log("Camera Accessed")
+
     document.getElementById("allowance-screen").classList.add("invisible")
-    prereqElm.remove()
+    prereqElm.classList.add("invisible")
 }
 
 function CameraFailed(error) {

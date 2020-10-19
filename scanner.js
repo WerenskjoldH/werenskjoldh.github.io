@@ -3,9 +3,11 @@ AFRAME.registerComponent('frogstoryevents', {
         var marker = this.el;
 
         marker.addEventListener('markerFound', function () {
-            var markerId = marker.id;
-            
-            window.open("https://www.hunter-scs.com/video.html", "_blank")
+            // var newWin = window.open()
+
+            // newWin.location = "https://www.hunter-scs.com/video.html"
+
+            document.getElementById("video-screen").classList.remove("closed")
         });
     }
   });
