@@ -7,7 +7,9 @@ AFRAME.registerComponent('frogstoryevents', {
 
             // newWin.location = "https://www.hunter-scs.com/video.html"
 
-            document.getElementById("video-screen").classList.remove("closed")
+            document.getElementById("video-wrap").classList.remove("closed")
+            document.getElementById("vs-video-source").src = "Content/storyEX.mp4"
+            document.getElementById("vs-video").load()
         });
     }
   });
@@ -23,3 +25,7 @@ AFRAME.registerComponent('frogstoryevents', {
       });
     }
   });
+
+function CloseVideoScreen() {
+  document.getElementById("video-wrap").classList.add("closed")
+}

@@ -54,9 +54,13 @@
     <div id="loading-screen">
       <h1>Loading...</h1>
     </div>
-
-    <div id="video-screen" class="closed">
-      <img id="vs-close-button" src="Content/closeButtonBevel.png"/>
+    <div id = "video-wrap" class="closed">
+      <div id="video-screen">
+        <img id="vs-close-button" src="Content/closeButtonBevel.png" onclick="CloseVideoScreen()"/>
+        <video id="vs-video" controls>
+          <source id="vs-video-source" src="" type='video/mp4'/>
+        </video>
+      </div>
     </div>
 
     <a-scene arjs="trackingMethod: best; debugUIEnabled: false;">
