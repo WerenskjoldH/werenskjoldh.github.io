@@ -17,45 +17,58 @@
 
 <body>
     <div id="prereq">
+
       <!-- BG Stars -->
       <img id="left-star" src="Content/star.png"/>
       <img id="right-star" src="Content/star.png"/>
 
+      <!-- Where we ask for camera permissions -->
       <div id="allowance-screen">
         <div id="allowance-text-area">
           <p id="allowance-text">Please Allow Camera Access</p>
         </div>
       </div>
 
+      <!-- If the site is opened on desktop, then this div will be shown -->
+      <!-- NOTE: This could use an icon image to make it look a bit more sleek -->
       <div id="desktop-screen" class="invisible">
         <div id="desktop-text-area">
-          <p id="desktop-text">Please Use A Mobile Device</p>
+          <p id="desktop-text">Please Open With A Mobile Device</p>
         </div>
       </div>
 
+      <!-- If the page is opened in an in-app browser this div will be shown -->
       <div id="inapp-screen" class="invisible">
         <a id="another-browser-a" href="">
           <img id="play-button" src="Content/playButton.png" />
         </a>
+
         <div id="inapp-text-area">
           <p id="launch-text">LAUNCH</p>
           <p id="different-browser-text">Please select another browser</p>
         </div>
       </div>
 
+      <!-- If the user denies media ( stream video ) permissions, then this div will be show -->
       <div id="unaccessible-media-screen" class="invisible">
         <div id="media-text-area">
           <p id="access-text">No Camera Access</p>
           <p id="access-description-text">Please refresh the page</p>
         </div>
       </div>
+
     </div>
 
+    <!-- While the image tracking data is being loaded this div will be shown -->
     <div id="loading-screen">
-      <h1>Loading...</h1>
+      <!-- https://github.com/lukehaas/css-loaders -->
+      <div class="loader">Loading...</div>
     </div>
+
+    <!-- This is the div that contains the video that is displayed after the user scans a picture -->
     <div id = "video-wrap" class="closed">
       <div id="video-screen">
+        <!-- This is the close 'X' that appears at the top of the video div  -->
         <img id="vs-close-button" src="Content/closeButtonBevel.png" onclick="CloseVideoScreen()"/>
         <video id="vs-video" controls>
           <source id="vs-video-source" src="" type='video/mp4'/>

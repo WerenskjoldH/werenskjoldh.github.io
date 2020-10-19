@@ -3,10 +3,6 @@ AFRAME.registerComponent('frogstoryevents', {
         var marker = this.el;
 
         marker.addEventListener('markerFound', function () {
-            // var newWin = window.open()
-
-            // newWin.location = "https://www.hunter-scs.com/video.html"
-
             document.getElementById("video-wrap").classList.remove("closed")
             document.getElementById("vs-video-source").src = "Content/storyEX.mp4"
             document.getElementById("vs-video").load()
