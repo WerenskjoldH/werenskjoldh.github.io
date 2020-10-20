@@ -6,7 +6,7 @@
  * @author Hunter W
  *
  * Created at     : 2020-10-20 11:55:34 
- * Last modified  : 2020-10-20 12:22:03
+ * Last modified  : 2020-10-20 12:26:58
  */
 
 // This opens the video screen overlay
@@ -31,6 +31,7 @@ function CloseVideoScreen() {
 
 AFRAME.registerComponent('frogstoryevents', {
   init: function () {
+      var marker = this.el;
       marker.addEventListener('markerFound', function () {
         OpenVideoScreen("Content/storyEX.mp4")
       });
