@@ -313,6 +313,20 @@ body {
 
 }
 
+#scan-overlay-image {
+    position: absolute;
+
+    top: 50%;
+    left: 0%;
+
+    height: 50%;
+    width: 100%;
+
+    transform: translateY(-50%);
+
+    z-index: 50;
+}
+
 #loading-screen {
     position: fixed;
 

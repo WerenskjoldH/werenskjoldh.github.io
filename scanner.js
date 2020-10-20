@@ -6,22 +6,29 @@
  * @author Hunter W
  *
  * Created at     : 2020-10-20 11:55:34 
- * Last modified  : 2020-10-20 12:32:33
+ * Last modified  : 2020-10-20 15:54:29
  */
+
+// This gate keeps the camera from attempting to open multiple videos or open another video while already watching one
+var watchingVideo = false
 
 // This opens the video screen overlay
 function OpenVideoScreen(filePath)
 {
+  if(watchingVideo)
+    return
+
+  watchingVideo = true
+
   document.getElementById("video-wrap").classList.remove("closed")
   document.getElementById("vs-video-source").src = filePath
   document.getElementById("vs-video").load()
-
-  // NOTE: Should we disable the webcam temporarily here?
-  //        Perhaps just gating the function will be less prone to bugs
 }
 
 // This is attached directly to the vs-close-button img element's onclick call index.html 
 function CloseVideoScreen() {
+  watchingVideo = false
+
   document.getElementById("video-wrap").classList.add("closed")
 }
 
@@ -31,12 +38,12 @@ function CloseVideoScreen() {
 
 AFRAME.registerComponent('frogstoryevents', {
   init: function () {
-      var marker = this.el;
+      var marker = this.el
       marker.addEventListener('markerFound', function () {
         OpenVideoScreen("Content/storyEX.mp4")
-      });
+      })
   }
-});
+})
 
 // ************************************************
 

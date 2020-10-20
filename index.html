@@ -17,7 +17,6 @@
 
 <body>
     <div id="prereq">
-
       <!-- BG Stars -->
       <img id="left-star" src="Content/star.png"/>
       <img id="right-star" src="Content/star.png"/>
@@ -56,7 +55,6 @@
           <p id="access-description-text">Please refresh the page</p>
         </div>
       </div>
-
     </div>
 
     <!-- While the image tracking data is being loaded this div will be shown -->
@@ -76,8 +74,10 @@
       </div>
     </div>
 
+    <img id="scan-overlay-image" src="Content/arOverlay.png"/>
+
     <!-- This is the ar scene we will be using to search for the various NFT images and calling the associated events -->
-    <a-scene arjs="trackingMethod: best; debugUIEnabled: false;">
+    <a-scene arjs="trackingMethod: best; debugUIEnabled: false;" vr-mode-ui="enabled: false">
         <a-nft type="nft" id="frogstory-img" url="Content/frogStory" frogstoryevents>
         </a-nft>
 
