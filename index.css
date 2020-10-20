@@ -117,8 +117,8 @@ body {
 #launch-text {
     font-weight: bold;
     font-size: 8vw;
-    letter-spacing: .8em;
-    margin-right: -.8em;
+    letter-spacing: .4em;
+    margin-right: -.4em;
 
     text-shadow: 4px 4px 10px #000000;
 }
