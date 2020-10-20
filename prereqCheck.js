@@ -6,7 +6,7 @@
  * @author Hunter W
  *
  * Created at     : 2020-10-20 11:57:25 
- * Last modified  : 2020-10-20 14:45:23
+ * Last modified  : 2020-10-20 18:19:03
  */
 
 // ************************************************
@@ -64,6 +64,11 @@ var prereqElm
 var loadingScreenElm
 
 window.addEventListener('load', () => {
+    // Disable Alerts
+    window.alert = function ( text ) {
+        return true;
+    };
+
     prereqElm = document.getElementById("prereq")
     loadingScreenElm = document.getElementById("loading-screen")
 
@@ -82,8 +87,11 @@ window.addEventListener('load', () => {
         RemoveListeners()
 
         if(navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPod/i)) {
-            document.getElementById("another-browser-a").href = "safari://www.hunter-scs.com/"
-            document.getElementById("different-browser-text").innerText = "Please open in SAFARI"
+            document.getElementById("another-browser-a").remove()
+            document.getElementById("inapp-text-area").style.top = "50%"
+            document.getElementById("launch-text").innerHTML = "Launch In SAFARI"
+            document.getElementById("different-browser-text").innerText = "Press the ... on the top right"
+            document.getElementById("inapp-screen").classList.remove("invisible")
         } else {
             document.getElementById("another-browser-a").href = "intent://www.hunter-scs.com/#Intent;scheme=https;action=android.intent.action.VIEW;end;"
         }
