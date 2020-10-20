@@ -362,6 +362,15 @@ body {
     opacity: 0 !important;
 }
 
+.antihighlight {
+    -webkit-touch-callout: none; 
+    -webkit-user-select: none;
+     -khtml-user-select: none; 
+       -moz-user-select: none; 
+        -ms-user-select: none; 
+            user-select: none;
+  }
+
 /* https://github.com/lukehaas/css-loaders */
 /*******************************************/
 .loader {

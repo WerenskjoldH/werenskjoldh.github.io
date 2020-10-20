@@ -6,7 +6,7 @@
  * @author Hunter W
  *
  * Created at     : 2020-10-20 11:55:34 
- * Last modified  : 2020-10-20 15:54:29
+ * Last modified  : 2020-10-20 16:18:07
  */
 
 // This gate keeps the camera from attempting to open multiple videos or open another video while already watching one
@@ -55,3 +55,10 @@ function iosShiftCloseButton() {
 }
 
 window.addEventListener('load', iosShiftCloseButton)
+
+// Prevent "right clicking" of images
+$(document).ready(() => {
+  $("img").on("contextmenu", function() {
+    return false
+  })
+})
