@@ -6,10 +6,10 @@
  * @author Hunter W
  *
  * Created at     : 2020-10-20 11:55:34 
- * Last modified  : 2020-10-20 12:10:44
+ * Last modified  : 2020-10-20 12:20:23
  */
 
- // This opens the video screen overlay
+// This opens the video screen overlay
 function OpenVideoScreen(filePath)
 {
   document.getElementById("video-wrap").classList.remove("closed")
@@ -25,8 +25,10 @@ function CloseVideoScreen() {
   document.getElementById("video-wrap").classList.add("closed")
 }
 
+// ************************************************
 /// Image Event Triggers
- // ************************************************
+// ************************************************
+
 AFRAME.registerComponent('frogstoryevents', {
   init: function () {
       marker.addEventListener('markerFound', function () {
@@ -35,7 +37,7 @@ AFRAME.registerComponent('frogstoryevents', {
   }
 });
 
- // ************************************************
+// ************************************************
 
 function iosShiftCloseButton() {
   // If the user is on iOS we need to shift the video close button to avoid overlap with the fullscreen control element
