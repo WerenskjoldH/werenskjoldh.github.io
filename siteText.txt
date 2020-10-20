@@ -1,0 +1,26 @@
+When asking for camera permissions:
+
+    English: Please Allow Camera Access
+    Japanese: 
+
+When site is accessed on desktop:
+
+    English: Please Access This Site With A Mobile Device
+    Japanese:
+
+When site is accessed on an in-app browser:
+
+    English: TAP TO LAUNCH
+                Please select another browser
+    Japanese:
+
+When user denies camera access:
+
+    English: No Camera Access
+                Please refresh the page
+    Japanese: 
+
+When loading the page:
+
+    English: Loading...
+    Japanese: 
