@@ -6,7 +6,7 @@
  * @author Hunter W
  *
  * Created at     : 2020-10-20 11:57:25 
- * Last modified  : 2020-10-20 12:10:34
+ * Last modified  : 2020-10-20 14:45:23
  */
 
 // ************************************************
@@ -67,8 +67,6 @@ window.addEventListener('load', () => {
     prereqElm = document.getElementById("prereq")
     loadingScreenElm = document.getElementById("loading-screen")
 
-    const inapp = new InApp(navigator.userAgent || navigator.vendor || navigator.opera)
-
     // This will remove event handlers, essentially halting the loading process at the current place
     // NOTE: These are the pre-reqs that need to be met before asking for camera permissions
     function RemoveListeners()
@@ -83,7 +81,7 @@ window.addEventListener('load', () => {
     {
         RemoveListeners()
 
-        if(inapp.isIOS()) {
+        if(navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPod/i)) {
             document.getElementById("another-browser-a").href = "safari://www.hunter-scs.com/"
             document.getElementById("different-browser-text").innerText = "Please open in SAFARI"
         } else {
@@ -100,6 +98,8 @@ window.addEventListener('load', () => {
 
         document.getElementById("desktop-screen").classList.remove("invisible")
     }
+
+        const inapp = new InApp(navigator.userAgent || navigator.vendor || navigator.opera)
 
     // Disable Alerts
     window.alert = function ( text ) {
