@@ -299,17 +299,17 @@ body {
     position: absolute;
 
     top: 0%;
-    left: 0%;
+    left: 10%;
     
     max-width: 16%;
 
     z-index: 32;
 
-    -webkit-transform: rotate(45deg) scale(0.5, 0.5);
+    -webkit-transform: translateX(-50%) rotate(45deg) scale(0.5, 0.5);
 
-        -ms-transform: rotate(45deg) scale(0.5, 0.5);
+        -ms-transform: translateX(-50%) rotate(45deg) scale(0.5, 0.5);
 
-            transform: rotate(45deg) scale(0.5, 0.5);
+            transform: translateX(-50%) rotate(45deg) scale(0.5, 0.5);
 
 }
 

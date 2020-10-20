@@ -47,7 +47,7 @@ var prereqElm
 
 var loadingScreenElm
 
-window.onload = function() {
+window.addEventListener('load', () => {
     console.log("Correct OS & Browser")
 
     prereqElm = document.getElementById("prereq")
@@ -60,6 +60,7 @@ window.onload = function() {
 
         if(navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPod/i)) {
             document.getElementById("another-browser-a").href = "safari://www.hunter-scs.com/"
+            document.getElementById("different-browser-text").innerText = "Please open in SAFARI"
         } else {
             document.getElementById("another-browser-a").href = "intent://www.hunter-scs.com/#Intent;scheme=https;action=android.intent.action.VIEW;end;"
         }
@@ -103,9 +104,9 @@ window.onload = function() {
     }    
 
     // Success
-
+    
     console.log("Correct OS & Browser")
-}
+})
 
 function CameraSuccess(data) {
     console.log("Camera Accessed")

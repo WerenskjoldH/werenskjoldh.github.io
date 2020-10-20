@@ -25,3 +25,9 @@ AFRAME.registerComponent('frogstoryevents', {
 function CloseVideoScreen() {
   document.getElementById("video-wrap").classList.add("closed")
 }
+
+window.addEventListener('load', () => {
+    if(navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPod/i)) {
+      document.getElementById("vs-close-button").style.left = "50%"
+    }
+})
