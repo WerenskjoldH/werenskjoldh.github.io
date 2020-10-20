@@ -6,7 +6,7 @@
  * @author Hunter W
  *
  * Created at     : 2020-10-20 11:55:34 
- * Last modified  : 2020-10-20 16:18:07
+ * Last modified  : 2020-10-20 18:26:30
  */
 
 // This gate keeps the camera from attempting to open multiple videos or open another video while already watching one
@@ -47,14 +47,14 @@ AFRAME.registerComponent('frogstoryevents', {
 
 // ************************************************
 
-function iosShiftCloseButton() {
+function IOSShiftCloseButton() {
   // If the user is on iOS we need to shift the video close button to avoid overlap with the fullscreen control element
   if(navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPod/i)) {
     document.getElementById("vs-close-button").style.left = "50%"
   }
 }
 
-window.addEventListener('load', iosShiftCloseButton)
+window.addEventListener('load', IOSShiftCloseButton)
 
 // Prevent "right clicking" of images
 $(document).ready(() => {
