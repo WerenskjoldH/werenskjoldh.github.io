@@ -6,7 +6,7 @@
  * @author Hunter W
  *
  * Created at     : 2020-10-20 11:55:34 
- * Last modified  : 2020-10-22 17:30:59
+ * Last modified  : 2020-10-22 18:58:24
  */
 
 // This gate keeps the camera from attempting to open multiple videos or open another video while already watching one
@@ -29,6 +29,10 @@ function OpenVideoScreen(filePath)
 function CloseVideoScreen() {
   watchingVideo = false
 
+  var videoElm = document.getElementById("vs-video")
+
+  videoElm.pause()
+  videoElm.currentTime = 0
   document.getElementById("video-wrap").classList.add("closed")
 }
 
@@ -41,6 +45,15 @@ AFRAME.registerComponent('frogstoryevents', {
       var marker = this.el
       marker.addEventListener('markerFound', function () {
         OpenVideoScreen("Content/storyOne.mp4")
+      })
+  }
+})
+
+AFRAME.registerComponent('kiminoevents', {
+  init: function () {
+      var marker = this.el
+      marker.addEventListener('markerFound', function () {
+        OpenVideoScreen("Content/storyTwo.mp4")
       })
   }
 })

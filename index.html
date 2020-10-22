@@ -74,12 +74,15 @@
       </div>
     </div>
 
-    
+
     <img id="scan-overlay-image" src="Content/photoScanIcon.png" class="antihighlight"/>
 
     <!-- This is the ar scene we will be using to search for the various NFT images and calling the associated events -->
     <a-scene arjs="trackingMethod: best; debugUIEnabled: false;" vr-mode-ui="enabled: false">
         <a-nft type="nft" id="frogstory-img" url="Content/frogStory" frogstoryevents>
+        </a-nft>
+
+        <a-nft type="nft" id="kimino-img" url="Content/kimino" kiminoevents>
         </a-nft>
 
         <a-marker preset="kanji" id="marker-kanji" kanjievents>

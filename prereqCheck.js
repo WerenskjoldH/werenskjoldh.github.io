@@ -6,7 +6,7 @@
  * @author Hunter W
  *
  * Created at     : 2020-10-20 11:57:25 
- * Last modified  : 2020-10-20 18:21:35
+ * Last modified  : 2020-10-22 18:53:55
  */
 
 // ************************************************
@@ -62,6 +62,11 @@ class InApp {
 var prereqElm 
 
 var loadingScreenElm
+
+// This must be updated in relation to the number of NFT imaged being used
+// This will dictate when the loading screen ends
+const totalNFTTags = 2
+var loadedNFTTags = 0
 
 window.addEventListener('load', () => {
     // Disable Alerts
@@ -150,8 +155,12 @@ function CameraFailed(error) {
 }
 
 function FinishedLoading(e) {
-    console.log("Finished Loading")
-    loadingScreenElm.classList.add("invisible")
+    loadedNFTTags += 1
+
+    console.log("Loaded: " + loadedNFTTags + " of " + totalNFTTags)
+
+    if(loadedNFTTags >= totalNFTTags)
+        loadingScreenElm.classList.add("invisible")
 }
 
 // Event Binds
