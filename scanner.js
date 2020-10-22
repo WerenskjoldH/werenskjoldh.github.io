@@ -6,7 +6,7 @@
  * @author Hunter W
  *
  * Created at     : 2020-10-20 11:55:34 
- * Last modified  : 2020-10-20 18:26:30
+ * Last modified  : 2020-10-22 17:30:59
  */
 
 // This gate keeps the camera from attempting to open multiple videos or open another video while already watching one
@@ -40,7 +40,7 @@ AFRAME.registerComponent('frogstoryevents', {
   init: function () {
       var marker = this.el
       marker.addEventListener('markerFound', function () {
-        OpenVideoScreen("Content/storyEX.mp4")
+        OpenVideoScreen("Content/storyOne.mp4")
       })
   }
 })
