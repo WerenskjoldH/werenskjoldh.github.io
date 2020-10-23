@@ -6,15 +6,17 @@
  * @author Hunter W
  *
  * Created at     : 2020-10-20 11:55:34 
- * Last modified  : 2020-10-23 14:55:29
+ * Last modified  : 2020-10-23 15:09:50
  */
 
+ 
 // ************************************************
 /// Global Variables
 // ************************************************
 
 // This gate keeps the camera from attempting to open multiple videos or open another video while already watching one
 var watchingVideo = false
+
 
 // ************************************************
 /// Video Screen Methods
@@ -44,6 +46,7 @@ function CloseVideoScreen() {
   document.getElementById("video-wrap").classList.add("closed")
 }
 
+
 // ************************************************
 /// Image Event Binding
 // ************************************************
@@ -69,6 +72,7 @@ window.addEventListener('load', () => {
   registerNFTFoundEvent('frogstory-img', 'frogstoryevents', "Content/storyOne.mp4")
   registerNFTFoundEvent('kimino-img', 'kiminoevents', "Content/storyTwo.mp4")
 })
+
 
 // ************************************************
 /// Platform Based Changes

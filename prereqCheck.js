@@ -6,8 +6,9 @@
  * @author Hunter W
  *
  * Created at     : 2020-10-20 11:57:25 
- * Last modified  : 2020-10-23 15:08:19
+ * Last modified  : 2020-10-23 15:10:03
  */
+
 
 // ************************************************
 /// Global Variables
@@ -19,6 +20,7 @@ var loadingScreenElm
 // This will dictate when the loading screen ends, the total value is set in scanner.js
 var totalNFTTags = 0 // DO NOT EDIT THIS
 var loadedNFTTags = 0
+
 
 // ************************************************
 /// Prereq Checking
@@ -132,6 +134,7 @@ window.addEventListener('camera-init', CameraSuccess)
 window.addEventListener('camera-error', CameraFailed);
 
 window.addEventListener('arjs-nft-loaded', FinishedLoading)
+
 
 // ************************************************
 /// UX Changes
