@@ -6,13 +6,21 @@
  * @author Hunter W
  *
  * Created at     : 2020-10-20 11:55:34 
- * Last modified  : 2020-10-22 18:58:24
+ * Last modified  : 2020-10-23 14:55:29
  */
+
+// ************************************************
+/// Global Variables
+// ************************************************
 
 // This gate keeps the camera from attempting to open multiple videos or open another video while already watching one
 var watchingVideo = false
 
-// This opens the video screen overlay
+// ************************************************
+/// Video Screen Methods
+// ************************************************
+
+// This opens the video screen overlay when called
 function OpenVideoScreen(filePath)
 {
   if(watchingVideo)
@@ -25,7 +33,7 @@ function OpenVideoScreen(filePath)
   document.getElementById("vs-video").load()
 }
 
-// This is attached directly to the vs-close-button img element's onclick call index.html 
+// Bound to vs-close-button img element's onclick call 
 function CloseVideoScreen() {
   watchingVideo = false
 
@@ -37,27 +45,33 @@ function CloseVideoScreen() {
 }
 
 // ************************************************
-/// Image Event Triggers
+/// Image Event Binding
 // ************************************************
 
-AFRAME.registerComponent('frogstoryevents', {
-  init: function () {
-      var marker = this.el
-      marker.addEventListener('markerFound', function () {
-        OpenVideoScreen("Content/storyOne.mp4")
-      })
-  }
+function registerNFTFoundEvent(nftID, eventName, video) {
+  // For each bound event, we increment the total NFT tags so loading is properly handled & displayed
+  totalNFTTags += 1
+  
+  document.getElementById(nftID).setAttribute(eventName)
+
+  AFRAME.registerComponent(eventName, {
+    init: function () {
+        var marker = this.el
+        marker.addEventListener('markerFound', function () {
+          OpenVideoScreen(video)
+        })
+    }
+  })
+}
+
+// Bind NFT element's found event to related videos 
+window.addEventListener('load', () => {
+  registerNFTFoundEvent('frogstory-img', 'frogstoryevents', "Content/storyOne.mp4")
+  registerNFTFoundEvent('kimino-img', 'kiminoevents', "Content/storyTwo.mp4")
 })
 
-AFRAME.registerComponent('kiminoevents', {
-  init: function () {
-      var marker = this.el
-      marker.addEventListener('markerFound', function () {
-        OpenVideoScreen("Content/storyTwo.mp4")
-      })
-  }
-})
-
+// ************************************************
+/// Platform Based Changes
 // ************************************************
 
 function IOSShiftCloseButton() {
@@ -66,12 +80,4 @@ function IOSShiftCloseButton() {
     document.getElementById("vs-close-button").style.left = "50%"
   }
 }
-
 window.addEventListener('load', IOSShiftCloseButton)
-
-// Prevent "right clicking" of images
-$(document).ready(() => {
-  $("img").on("contextmenu", function() {
-    return false
-  })
-})

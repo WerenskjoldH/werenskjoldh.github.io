@@ -1,72 +1,28 @@
 /**
- * This code is run when the web page is loaded and checks the system against various pre-requirements
+ * This script checks the system against various pre-requirements
  *  If all pre-reqs are met then the user is sent to the loading screen then the web app
  *
  * @summary Check if system requirements are met before running the web app
  * @author Hunter W
  *
  * Created at     : 2020-10-20 11:57:25 
- * Last modified  : 2020-10-22 18:53:55
+ * Last modified  : 2020-10-23 15:08:19
  */
 
 // ************************************************
-// https://github.com/f2etw/detect-inapp
-// Used with recognition of MIT License
-// ************************************************
-
-const BROWSER = {
-    messenger: /\bFB[\w_]+\/(Messenger|MESSENGER)/,
-    facebook: /\bFB[\w_]+\//,
-    twitter: /\bTwitter/i,
-    line: /\bLine\//i,
-    wechat: /\bMicroMessenger\//i,
-    puffin: /\bPuffin/i,
-    miui: /\bMiuiBrowser\//i,
-    instagram: /\bInstagram/i,
-    chrome: /\bCrMo\b|CriOS|Android.*Chrome\/[.0-9]* (Mobile)?/,
-    safari: /Version.*Mobile.*Safari|Safari.*Mobile|MobileSafari/,
-    ie: /IEMobile|MSIEMobile/,
-    firefox: /fennec|firefox.*maemo|(Mobile|Tablet).*Firefox|Firefox.*Mobile|FxiOS/,
-};
-class InApp {
-    constructor(useragent) {
-        this.ua = '';
-        this.ua = useragent;
-    }
-    get browser() {
-        return findKey(BROWSER, regex => regex.test(this.ua)) || 'other';
-    }
-    get isMobile() {
-        return /(iPad|iPhone|Android|Mobile)/i.test(this.ua) || false;
-    }
-    get isDesktop() {
-        return !this.isMobile;
-    }
-    get isInApp() {
-        const rules = [
-            'WebView',
-            '(iPhone|iPod|iPad)(?!.*Safari\/)',
-            'Android.*(wv|\.0\.0\.0)',
-        ];
-        const regex = new RegExp(`(${rules.join('|')})`, 'ig');
-        return Boolean(this.ua.match(regex));
-    }
-    // Modified - Hunter W. 
-    get isIOS() {
-        return navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPod/i)
-    }
-}
-
+/// Global Variables
 // ************************************************
 
 var prereqElm 
-
 var loadingScreenElm
 
-// This must be updated in relation to the number of NFT imaged being used
-// This will dictate when the loading screen ends
-const totalNFTTags = 2
+// This will dictate when the loading screen ends, the total value is set in scanner.js
+var totalNFTTags = 0 // DO NOT EDIT THIS
 var loadedNFTTags = 0
+
+// ************************************************
+/// Prereq Checking
+// ************************************************
 
 window.addEventListener('load', () => {
     // Disable Alerts
@@ -91,6 +47,7 @@ window.addEventListener('load', () => {
     {
         RemoveListeners()
 
+        // Depending on the platform (ios vs android) we need to adjust content 
         if(navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPod/i)) {
             document.getElementById("another-browser-a").remove()
             document.getElementById("inapp-text-area").style.top = "50%"
@@ -112,7 +69,7 @@ window.addEventListener('load', () => {
         document.getElementById("desktop-screen").classList.remove("invisible")
     }
 
-        const inapp = new InApp(navigator.userAgent || navigator.vendor || navigator.opera)
+    const inapp = new InApp(navigator.userAgent || navigator.vendor || navigator.opera)
 
     // Disable Alerts
     window.alert = function ( text ) {
@@ -122,7 +79,6 @@ window.addEventListener('load', () => {
     // Check if browser is in-app or desktop and prevent further progress if so
     if(inapp.isInApp)
     {
-        
         OpenedInApp()
         return
     }
@@ -133,10 +89,14 @@ window.addEventListener('load', () => {
     }    
 
     // Success
-    console.log("Correct OS & Browser")
+
+    // Set the loading screen text
+    document.getElementById("loading-text").innerHTML = "0/" + totalNFTTags
+    // This prevents video loading until we have finished loading all NFT data
+    watchingVideo = true
 })
 
-// Event Handlers
+/// Prereq Event Handlers
 
 // If camera permissions were given this will be called
 function CameraSuccess(data) {
@@ -154,19 +114,32 @@ function CameraFailed(error) {
     document.getElementById("unaccessible-media-screen").classList.remove("invisible")
 }
 
+// This function is run when an NFT finishes loading
 function FinishedLoading(e) {
     loadedNFTTags += 1
 
-    console.log("Loaded: " + loadedNFTTags + " of " + totalNFTTags)
+    // Update loading text
+    document.getElementById("loading-text").innerHTML = loadedNFTTags + "/" + totalNFTTags
 
-    if(loadedNFTTags >= totalNFTTags)
+    if(loadedNFTTags >= totalNFTTags) {
+        watchingVideo = false
         loadingScreenElm.classList.add("invisible")
+    }
 }
 
 // Event Binds
 window.addEventListener('camera-init', CameraSuccess)
-
 window.addEventListener('camera-error', CameraFailed);
 
 window.addEventListener('arjs-nft-loaded', FinishedLoading)
 
+// ************************************************
+/// UX Changes
+// ************************************************
+
+// Prevents images from being right clicked
+window.addEventListener('load', () => {
+    $("img").on("contextmenu", function() {
+        return false
+    })
+})

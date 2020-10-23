@@ -363,6 +363,18 @@ body {
     background-color: #232323;
 }
 
+#loading-text {
+    text-rendering: optimizeSpeed;
+    font-weight: bold;
+    font-size: 10vw;
+    letter-spacing: .8em;
+    margin-right: -.8em;
+    margin-top: -10px;
+
+    text-shadow: 4px 4px 10px #000000;
+}
+
+
 .invisible {
     display: none !important;
     opacity: 0 !important;
