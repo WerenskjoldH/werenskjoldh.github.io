@@ -6,7 +6,7 @@
  * @author Hunter W
  *
  * Created at     : 2020-10-20 11:55:34 
- * Last modified  : 2020-10-23 15:09:50
+ * Last modified  : 2020-10-23 16:16:28
  */
 
  
@@ -78,6 +78,7 @@ window.addEventListener('load', () => {
 /// Platform Based Changes
 // ************************************************
 
+// Moves the close button element for ios 
 function IOSShiftCloseButton() {
   // If the user is on iOS we need to shift the video close button to avoid overlap with the fullscreen control element
   if(navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPod/i)) {

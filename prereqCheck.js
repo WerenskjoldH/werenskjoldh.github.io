@@ -6,7 +6,7 @@
  * @author Hunter W
  *
  * Created at     : 2020-10-20 11:57:25 
- * Last modified  : 2020-10-23 15:10:03
+ * Last modified  : 2020-10-23 16:16:39
  */
 
 
@@ -14,7 +14,9 @@
 /// Global Variables
 // ************************************************
 
+// The prereq div that blocks the screen until all prereqs are checked
 var prereqElm 
+// The loading screen that displays until all NFT image data is loaded
 var loadingScreenElm
 
 // This will dictate when the loading screen ends, the total value is set in scanner.js
