@@ -17,11 +17,14 @@
 </head>
 
 <body>
-    <div id="prereq">
-      <!-- BG Stars -->
-      <img id="left-star" src="Content/star.png" class="antihighlight"/>
-      <img id="right-star" src="Content/star.png" class="antihighlight"/>
+  <div id="star-overlay">
+    <!-- BG Stars -->
+    <img id="left-star" src="Content/star.png" class="antihighlight"/>
+    <img id="right-star" src="Content/star.png" class="antihighlight"/>
+  </div>
 
+    <!-- Contains all prereq related "screens" and elements -->
+    <div id="prereq">
       <!-- Where we ask for camera permissions -->
       <div id="allowance-screen" class="antihighlight">
         <div id="allowance-text-area">
@@ -62,7 +65,7 @@
     <div id="loading-screen" class="antihighlight">
       <!-- https://github.com/lukehaas/css-loaders -->
       <div class="loader">Loading...</div>
-      <p id="loading-text">x/x</p>
+      <p id="loading-text">0/x</p>
     </div>
 
     <!-- This is the div that contains the video that is displayed after the user scans a picture -->

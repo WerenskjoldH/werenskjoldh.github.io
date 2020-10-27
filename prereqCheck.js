@@ -6,7 +6,7 @@
  * @author Hunter W
  *
  * Created at     : 2020-10-20 11:57:25 
- * Last modified  : 2020-10-23 16:16:39
+ * Last modified  : 2020-10-23 17:33:20
  */
 
 
@@ -15,7 +15,7 @@
 // ************************************************
 
 // The prereq div that blocks the screen until all prereqs are checked
-var prereqElm 
+var prereqElm
 // The loading screen that displays until all NFT image data is loaded
 var loadingScreenElm
 
@@ -128,6 +128,7 @@ function FinishedLoading(e) {
     if(loadedNFTTags >= totalNFTTags) {
         watchingVideo = false
         loadingScreenElm.classList.add("invisible")
+        document.getElementById("star-overlay").classList.add("invisible")
     }
 }
 

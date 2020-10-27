@@ -6,7 +6,7 @@
  * @author Hunter W
  *
  * Created at     : 2020-10-20 11:55:34 
- * Last modified  : 2020-10-23 16:16:28
+ * Last modified  : 2020-10-23 17:10:53
  */
 
  
@@ -55,8 +55,10 @@ function registerNFTFoundEvent(nftID, eventName, video) {
   // For each bound event, we increment the total NFT tags so loading is properly handled & displayed
   totalNFTTags += 1
   
+  // Adds the event attribute to the specified element
   document.getElementById(nftID).setAttribute(eventName)
 
+  // Registers the event attribute to the marker found event
   AFRAME.registerComponent(eventName, {
     init: function () {
         var marker = this.el
